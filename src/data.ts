@@ -23,7 +23,9 @@ export const NUTRITIONIST_INFO = {
   instagramHandle: 'nutjavieravaldivieso',
   instagramFollowers: '228K',
   email: 'contacto@javieravaldivieso.cl',
-  phone: '+56 9 8765 4321'
+  phone: '+56 9 8765 4321',
+  linkReservas: '',
+  linkPagos: '',
 };
 
 export const SPECIALTIES: Specialty[] = [

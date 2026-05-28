@@ -307,12 +307,16 @@ export default function AdminPage() {
     setLoading(true);
     const formData = new FormData(e.currentTarget);
     const configObj: Record<string, string> = {
-      site_title: formData.get('site_title') as string,
-      site_description: formData.get('site_description') as string,
-      contact_email: formData.get('contact_email') as string,
-      contact_phone: formData.get('contact_phone') as string,
+      nombre: formData.get('nombre') as string,
+      descripcion: formData.get('descripcion') as string,
+      email: formData.get('email') as string,
+      telefono: formData.get('telefono') as string,
       whatsapp_number: formData.get('whatsapp_number') as string,
       instagram_handle: formData.get('instagram_handle') as string,
+      instagram: formData.get('instagram') as string,
+      instagram_followers: formData.get('instagram_followers') as string,
+      link_reservas: formData.get('link_reservas') as string,
+      link_pagos: formData.get('link_pagos') as string,
     };
 
     await fetch(`${API_BASE}/api/config`, {
@@ -622,21 +626,21 @@ export default function AdminPage() {
             <h2 className="font-serif text-2xl font-bold text-sage-900 mb-6">Configuración</h2>
             <form onSubmit={saveConfig} className="bg-white rounded-2xl border border-sage-100 p-6 max-w-2xl space-y-4">
               <div>
-                <label className="block text-sm font-medium text-sage-700 mb-1">Título del sitio</label>
-                <input name="site_title" defaultValue={getConfigValue('site_title')} className="w-full px-4 py-2 rounded-xl border border-sage-200 focus:border-sage-500 outline-none" />
+                <label className="block text-sm font-medium text-sage-700 mb-1">Nombre del sitio</label>
+                <input name="nombre" defaultValue={getConfigValue('nombre')} className="w-full px-4 py-2 rounded-xl border border-sage-200 focus:border-sage-500 outline-none" />
               </div>
               <div>
                 <label className="block text-sm font-medium text-sage-700 mb-1">Descripción</label>
-                <textarea name="site_description" defaultValue={getConfigValue('site_description')} rows={3} className="w-full px-4 py-2 rounded-xl border border-sage-200 focus:border-sage-500 outline-none" />
+                <textarea name="descripcion" defaultValue={getConfigValue('descripcion')} rows={3} className="w-full px-4 py-2 rounded-xl border border-sage-200 focus:border-sage-500 outline-none" />
               </div>
               <div className="grid grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-medium text-sage-700 mb-1">Email</label>
-                  <input name="contact_email" defaultValue={getConfigValue('contact_email')} className="w-full px-4 py-2 rounded-xl border border-sage-200 focus:border-sage-500 outline-none" />
+                  <input name="email" defaultValue={getConfigValue('email')} className="w-full px-4 py-2 rounded-xl border border-sage-200 focus:border-sage-500 outline-none" />
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-sage-700 mb-1">Teléfono</label>
-                  <input name="contact_phone" defaultValue={getConfigValue('contact_phone')} className="w-full px-4 py-2 rounded-xl border border-sage-200 focus:border-sage-500 outline-none" />
+                  <input name="telefono" defaultValue={getConfigValue('telefono')} className="w-full px-4 py-2 rounded-xl border border-sage-200 focus:border-sage-500 outline-none" />
                 </div>
               </div>
               <div className="grid grid-cols-2 gap-4">
@@ -645,8 +649,28 @@ export default function AdminPage() {
                   <input name="whatsapp_number" defaultValue={getConfigValue('whatsapp_number')} className="w-full px-4 py-2 rounded-xl border border-sage-200 focus:border-sage-500 outline-none" />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-sage-700 mb-1">Instagram</label>
+                  <label className="block text-sm font-medium text-sage-700 mb-1">Instagram Handle</label>
                   <input name="instagram_handle" defaultValue={getConfigValue('instagram_handle')} className="w-full px-4 py-2 rounded-xl border border-sage-200 focus:border-sage-500 outline-none" />
+                </div>
+              </div>
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-medium text-sage-700 mb-1">URL Instagram</label>
+                  <input name="instagram" defaultValue={getConfigValue('instagram')} className="w-full px-4 py-2 rounded-xl border border-sage-200 focus:border-sage-500 outline-none" />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-sage-700 mb-1">Seguidores Instagram</label>
+                  <input name="instagram_followers" defaultValue={getConfigValue('instagram_followers')} className="w-full px-4 py-2 rounded-xl border border-sage-200 focus:border-sage-500 outline-none" />
+                </div>
+              </div>
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-medium text-sage-700 mb-1">Link de reservas (Calendly)</label>
+                  <input name="link_reservas" defaultValue={getConfigValue('link_reservas')} placeholder="https://calendly.com/..." className="w-full px-4 py-2 rounded-xl border border-sage-200 focus:border-sage-500 outline-none" />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-sage-700 mb-1">Link de pagos</label>
+                  <input name="link_pagos" defaultValue={getConfigValue('link_pagos')} placeholder="https://..." className="w-full px-4 py-2 rounded-xl border border-sage-200 focus:border-sage-500 outline-none" />
                 </div>
               </div>
               <button
