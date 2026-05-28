@@ -1,0 +1,6 @@
+{
+  "name": "Nutricionista Profesional",
+  "description": "Sitio web premium y moderno para una nutricionista profesional en Chile, con sistema de reservas, pago online integrado, programas wellness y blog de salud con SEO optimizado.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
