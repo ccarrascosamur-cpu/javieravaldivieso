@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Manual de Usuario - Javiera Valdivieso Nutrición</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap');
+    
+    :root {
+      --sage-50: #f0f0eb;
+      --sage-100: #e2e2d9;
+      --sage-200: #c5c5b8;
+      --sage-500: #787860;
+      --sage-700: #5A5A40;
+      --sage-800: #4a4a35;
+      --sage-900: #1a1a1a;
+      --sand-50: #faf9f6;
+      --sand-100: #f5f3ed;
+      --sand-200: #e8e4da;
+      --sand-300: #d4cfc3;
+      --sand-500: #a8a090;
+      --emerald: #10b981;
+    }
+    
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--sage-900);
+      line-height: 1.7;
+      background: white;
+    }
+    
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      padding: 25mm 20mm;
+      margin: 0 auto;
+      background: white;
+      position: relative;
+    }
+    
+    /* Cover */
+    .cover {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 247mm;
+      text-align: center;
+      background: linear-gradient(180deg, var(--sand-50) 0%, white 100%);
+      border-radius: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .cover::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      right: -100px;
+      width: 400px;
+      height: 400px;
+      background: var(--sage-100);
+      border-radius: 50%;
+      opacity: 0.5;
+    }
+    
+    .cover::after {
+      content: '';
+      position: absolute;
+      bottom: -50px;
+      left: -50px;
+      width: 300px;
+      height: 300px;
+      background: var(--sand-200);
+      border-radius: 50%;
+      opacity: 0.4;
+    }
+    
+    .cover-logo {
+      width: 180px;
+      height: auto;
+      margin-bottom: 40px;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .cover h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 42px;
+      font-weight: 700;
+      color: var(--sage-900);
+      margin-bottom: 15px;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .cover .subtitle {
+      font-size: 18px;
+      color: var(--sage-500);
+      font-weight: 300;
+      margin-bottom: 60px;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .cover .meta {
+      font-size: 13px;
+      color: var(--sand-500);
+      position: relative;
+      z-index: 1;
+    }
+    
+    .cover .meta span {
+      display: inline-block;
+      margin: 0 15px;
+    }
+    
+    .cover .developer {
+      margin-top: 80px;
+      padding-top: 30px;
+      border-top: 1px solid var(--sand-200);
+      position: relative;
+      z-index: 1;
+    }
+    
+    .cover .developer p {
+      font-size: 12px;
+      color: var(--sand-500);
+    }
+    
+    .cover .developer a {
+      color: var(--sage-700);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    
+    /* Content pages */
+    .content-page {
+      padding-top: 20mm;
+    }
+    
+    .header-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 15px;
+      border-bottom: 2px solid var(--sage-100);
+      margin-bottom: 30px;
+    }
+    
+    .header-bar img {
+      width: 50px;
+      height: auto;
+    }
+    
+    .header-bar .page-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 14px;
+      color: var(--sage-500);
+      font-weight: 600;
+    }
+    
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--sage-900);
+      margin: 40px 0 20px;
+      padding-bottom: 10px;
+      border-bottom: 3px solid var(--sage-200);
+    }
+    
+    h3 {
+      font-family: 'Inter', sans-serif;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--sage-700);
+      margin: 30px 0 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    h3 .number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      background: var(--sage-700);
+      color: white;
+      border-radius: 50%;
+      font-size: 14px;
+      font-weight: 700;
+    }
+    
+    p {
+      margin-bottom: 15px;
+      font-size: 14px;
+      color: var(--sage-800);
+    }
+    
+    .info-box {
+      background: var(--sand-50);
+      border-left: 4px solid var(--sage-500);
+      padding: 20px 25px;
+      margin: 20px 0;
+      border-radius: 0 10px 10px 0;
+    }
+    
+    .info-box strong {
+      color: var(--sage-700);
+    }
+    
+    .warning-box {
+      background: #fef3c7;
+      border-left: 4px solid #f59e0b;
+      padding: 20px 25px;
+      margin: 20px 0;
+      border-radius: 0 10px 10px 0;
+    }
+    
+    .success-box {
+      background: #d1fae5;
+      border-left: 4px solid var(--emerald);
+      padding: 20px 25px;
+      margin: 20px 0;
+      border-radius: 0 10px 10px 0;
+    }
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 13px;
+    }
+    
+    th {
+      background: var(--sage-700);
+      color: white;
+      padding: 12px 15px;
+      text-align: left;
+      font-weight: 600;
+    }
+    
+    td {
+      padding: 12px 15px;
+      border-bottom: 1px solid var(--sand-200);
+    }
+    
+    tr:nth-child(even) {
+      background: var(--sand-50);
+    }
+    
+    ol, ul {
+      margin: 15px 0 15px 25px;
+    }
+    
+    li {
+      margin-bottom: 10px;
+      font-size: 14px;
+    }
+    
+    code {
+      background: var(--sand-100);
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-family: 'Courier New', monospace;
+      font-size: 13px;
+      color: var(--sage-700);
+    }
+    
+    .step {
+      display: flex;
+      gap: 20px;
+      margin: 25px 0;
+      padding: 20px;
+      background: white;
+      border: 1px solid var(--sand-200);
+      border-radius: 12px;
+    }
+    
+    .step-number {
+      flex-shrink: 0;
+      width: 40px;
+      height: 40px;
+      background: var(--sage-700);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 16px;
+    }
+    
+    .step-content h4 {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--sage-900);
+      margin-bottom: 8px;
+    }
+    
+    .step-content p {
+      margin-bottom: 0;
+      font-size: 13px;
+    }
+    
+    .footer-page {
+      text-align: center;
+      padding: 40px 0;
+      margin-top: 60px;
+      border-top: 2px solid var(--sage-100);
+    }
+    
+    .footer-page img {
+      width: 80px;
+      margin-bottom: 20px;
+    }
+    
+    .footer-page p {
+      font-size: 12px;
+      color: var(--sand-500);
+    }
+    
+    @media print {
+      .page {
+        margin: 0;
+        padding: 20mm 15mm;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="page">
+  <div class="cover">
+    <img src="public/logo-javiera-valdivieso.png" alt="Javiera Valdivieso" class="cover-logo">
+    <h1>Manual de Usuario</h1>
+    <p class="subtitle">Guía completa para gestionar tu sitio web</p>
+    <div class="meta">
+      <span>📍 javieravaldivieso.cl</span>
+      <span>📅 Mayo 2026</span>
+    </div>
+    <div class="developer">
+      <p>Sitio desarrollado por <a href="https://www.emmagination.cl">Emmagination</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page content-page">
+  <div class="header-bar">
+    <img src="public/logo-javiera-valdivieso.png" alt="Logo">
+    <span class="page-title">Manual de Usuario</span>
+  </div>
+  
+  <h2>📋 Acceso al Sitio</h2>
+  
+  <div class="info-box">
+    <strong>URL pública:</strong> <code>https://javieravaldivieso.cl</code><br>
+    <strong>Panel Admin:</strong> <code>https://javieravaldivieso.cl/admin</strong><br>
+    <strong>Contraseña:</strong> <code>javiera2026</code>
+  </div>
+  
+  <h2>🔐 Panel de Administración</h2>
+  
+  <p>El panel de admin te permite gestionar todo el contenido de tu sitio web sin necesidad de saber programación.</p>
+  
+  <table>
+    <tr>
+      <th>Sección</th>
+      <th>Qué puedes hacer</th>
+    </tr>
+    <tr>
+      <td><strong>Dashboard</strong></td>
+      <td>Ver resumen de servicios, artículos y testimonios</td>
+    </tr>
+    <tr>
+      <td><strong>Servicios</strong></td>
+      <td>Crear, editar y eliminar planes de precios</td>
+    </tr>
+    <tr>
+      <td><strong>Artículos</strong></td>
+      <td>Gestionar el blog con posts de nutrición</td>
+    </tr>
+    <tr>
+      <td><strong>Testimonios</strong></td>
+      <td>Agregar experiencias de pacientes</td>
+    </tr>
+    <tr>
+      <td><strong>Configuración</strong></td>
+      <td>Editar datos de contacto, redes y links de pago</td>
+    </tr>
+  </table>
+</div>
+
+<!-- PAGE 3 -->
+<div class="page content-page">
+  <div class="header-bar">
+    <img src="public/logo-javiera-valdivieso.png" alt="Logo">
+    <span class="page-title">Editar Servicios</span>
+  </div>
+  
+  <h2>✏️ Cómo Editar un Servicio</h2>
+  
+  <div class="step">
+    <div class="step-number">1</div>
+    <div class="step-content">
+      <h4>Accede a la sección Servicios</h4>
+      <p>En el menú lateral izquierdo, click en "Servicios".</p>
+    </div>
+  </div>
+  
+  <div class="step">
+    <div class="step-number">2</div>
+    <div class="step-content">
+      <h4>Selecciona el servicio a editar</h4>
+      <p>Click en el ícono de lápiz (✏️) del plan que quieres modificar.</p>
+    </div>
+  </div>
+  
+  <div class="step">
+    <div class="step-number">3</div>
+    <div class="step-content">
+      <h4>Modifica los campos</h4>
+      <p>Actualiza precio, descripción, beneficios, links de pago/calendario, etc.</p>
+    </div>
+  </div>
+  
+  <div class="step">
+    <div class="step-number">4</div>
+    <div class="step-content">
+      <h4>Guarda los cambios</h4>
+      <p>Click en "Guardar". Los cambios se reflejan inmediatamente en el sitio.</p>
+    </div>
+  </div>
+  
+  <div class="success-box">
+    <strong>💡 Tip:</strong> El campo "Beneficios" usa el símbolo <code>|</code> (pipe) para separar cada ítem. Ejemplo:<br>
+    <code>Beneficio 1|Beneficio 2|Beneficio 3</code>
+  </div>
+</div>
+
+<!-- PAGE 4 -->
+<div class="page content-page">
+  <div class="header-bar">
+    <img src="public/logo-javiera-valdivieso.png" alt="Logo">
+    <span class="page-title">Configuración General</span>
+  </div>
+  
+  <h2>⚙️ Configuración del Sitio</h2>
+  
+  <p>En la sección "Configuración" puedes editar los datos generales de tu sitio:</p>
+  
+  <table>
+    <tr>
+      <th>Campo</th>
+      <th>Descripción</th>
+      <th>Ejemplo</th>
+    </tr>
+    <tr>
+      <td>Nombre del sitio</td>
+      <td>Título que aparece en Google</td>
+      <td>Javiera Valdivieso Nutrición</td>
+    </tr>
+    <tr>
+      <td>Descripción</td>
+      <td>Meta descripción SEO</td>
+      <td>Nutricionista clínica online...</td>
+    </tr>
+    <tr>
+      <td>Email</td>
+      <td>Correo de contacto público</td>
+      <td>contacto@javieravaldivieso.cl</td>
+    </tr>
+    <tr>
+      <td>Teléfono</td>
+      <td>Teléfono fijo</td>
+      <td>+56 9 8765 4321</td>
+    </tr>
+    <tr>
+      <td>WhatsApp</td>
+      <td>Número para el botón flotante</td>
+      <td>56987654321</td>
+    </tr>
+    <tr>
+      <td>Instagram Handle</td>
+      <td>Usuario de Instagram</td>
+      <td>nutjavieravaldivieso</td>
+    </tr>
+    <tr>
+      <td><strong>Link de reservas</strong></td>
+      <td>URL de Calendly</td>
+      <td>https://calendly.com/...</td>
+    </tr>
+    <tr>
+      <td><strong>Link de pagos</strong></td>
+      <td>URL de MercadoPago/Flow</td>
+      <td>https://mpago.la/...</td>
+    </tr>
+  </table>
+</div>
+
+<!-- PAGE 5 -->
+<div class="page content-page">
+  <div class="header-bar">
+    <img src="public/logo-javiera-valdivieso.png" alt="Logo">
+    <span class="page-title">MercadoPago</span>
+  </div>
+  
+  <h2>💳 Crear Cuenta en MercadoPago</h2>
+  
+  <h3><span class="number">1</span> Registro</h3>
+  <ol>
+    <li>Ve a <code>www.mercadopago.cl</code></li>
+    <li>Click en <strong>Crear cuenta</strong></li>
+    <li>Selecciona <strong>Vendedor / Empresa</strong></li>
+    <li>Completa tus datos personales y del negocio</li>
+    <li>Verifica tu identidad con RUT</li>
+  </ol>
+  
+  <h3><span class="number">2</span> Configurar Medios de Pago</h3>
+  <ol>
+    <li>Ingresa a tu cuenta</li>
+    <li>Ve a <strong>Tu negocio → Configuración</strong></li>
+    <li>Activa: WebPay, Transferencia, MercadoPago Wallet</li>
+  </ol>
+  
+  <h3><span class="number">3</span> Crear Link de Pago</h3>
+  <ol>
+    <li>Ve a <strong>Tu negocio → Links de pago</strong></li>
+    <li>Click en <strong>Crear link</strong></li>
+    <li>Completa: Nombre, Precio, Descripción</li>
+    <li>Copia el link generado</li>
+  </ol>
+  
+  <div class="success-box">
+    <strong>✅ Listo:</strong> Pega el link en el campo "Link de pago" del servicio en el admin.
+  </div>
+</div>
+
+<!-- PAGE 6 -->
+<div class="page content-page">
+  <div class="header-bar">
+    <img src="public/logo-javiera-valdivieso.png" alt="Logo">
+    <span class="page-title">Calendly</span>
+  </div>
+  
+  <h2>📅 Crear Cuenta en Calendly</h2>
+  
+  <h3><span class="number">1</span> Registro</h3>
+  <ol>
+    <li>Ve a <code>calendly.com</code></li>
+    <li>Click en <strong>Sign Up Free</strong></li>
+    <li>Regístrate con email o Google</li>
+    <li>Configura tu zona horaria (Santiago, Chile)</li>
+  </ol>
+  
+  <h3><span class="number">2</span> Configurar Disponibilidad</h3>
+  <ol>
+    <li>Ve a <strong>Availability → Set your availability</strong></li>
+    <li>Selecciona días y horarios de atención</li>
+    <li>Configura duración: <strong>60 min</strong> para consultas</li>
+    <li>Guarda los cambios</li>
+  </ol>
+  
+  <h3><span class="number">3</span> Crear Evento</h3>
+  <ol>
+    <li>Ve a <strong>Event Types → New Event Type</strong></li>
+    <li>Selecciona <strong>One-on-One</strong></li>
+    <li>Nombre: "Consulta Nutricional"</li>
+    <li>Duración: 60 minutos</li>
+    <li>Ubicación: "Videollamada por Zoom/Google Meet"</li>
+  </ol>
+  
+  <h3><span class="number">4</span> Obtener el Link</h3>
+  <ol>
+    <li>En tu dashboard, encuentra el evento</li>
+    <li>Click en <strong>Copy link</strong></li>
+    <li>El link se ve así: <code>calendly.com/tu-usuario/consulta</code></li>
+  </ol>
+  
+  <div class="success-box">
+    <strong>✅ Listo:</strong> Pega el link en el campo "Link de calendario" del servicio en el admin.
+  </div>
+</div>
+
+<!-- PAGE 7 -->
+<div class="page content-page">
+  <div class="header-bar">
+    <img src="public/logo-javiera-valdivieso.png" alt="Logo">
+    <span class="page-title">Soporte</span>
+  </div>
+  
+  <h2>❓ ¿Necesitas Ayuda?</h2>
+  
+  <p>Si tienes algún problema o duda con tu sitio web, contacta al equipo de desarrollo:</p>
+  
+  <div class="info-box">
+    <strong>Desarrollador:</strong> Emmagination<br>
+    <strong>Web:</strong> <code>www.emmagination.cl</code><br>
+    <strong>Email:</strong> contacto@emmagination.cl
+  </div>
+  
+  <div class="warning-box">
+    <strong>⚠️ Importante:</strong> Guarda este manual en un lugar seguro. La contraseña del admin es privada y no debe compartirse.
+  </div>
+  
+  <div class="footer-page">
+    <img src="public/logo-javiera-valdivieso.png" alt="Javiera Valdivieso">
+    <p>© 2026 Javiera Valdivieso Nutrición. Todos los derechos reservados.</p>
+    <p style="margin-top: 10px; font-size: 11px;">Sitio desarrollado por <strong>Emmagination</strong></p>
+  </div>
+</div>
+
+</body>
+</html>
