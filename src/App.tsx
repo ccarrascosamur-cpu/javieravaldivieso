@@ -8,6 +8,7 @@ import ArticuloPage from './pages/ArticuloPage';
 import TestimoniosPage from './pages/TestimoniosPage';
 import FAQPage from './pages/FAQPage';
 import ContactoPage from './pages/ContactoPage';
+import AdminPage from './pages/AdminPage';
 
 export default function App() {
   return (
@@ -22,6 +23,7 @@ export default function App() {
         <Route path="/preguntas-frecuentes" element={<FAQPage />} />
         <Route path="/contacto" element={<ContactoPage />} />
       </Route>
+      <Route path="/admin" element={<AdminPage />} />
     </Routes>
   );
 }

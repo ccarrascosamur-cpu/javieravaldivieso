@@ -63,10 +63,10 @@ export default function Services({ onSelectServiceForBooking, onSelectServiceFor
           {(servicios || []).map((plan: any) => (
             <div
               key={plan.id}
-              className={`relative bg-white rounded-3xl border transition-all duration-300 flex flex-col justify-between p-6 sm:p-8 ${
+              className={`relative bg-white rounded-3xl border transition-all duration-500 flex flex-col justify-between p-6 sm:p-8 group cursor-default ${
                 plan.isPopular
-                  ? 'border-sage-500 shadow-lg scale-100 md:scale-105 z-10 bg-white'
-                  : 'border-sage-200/60 shadow-xs hover:border-sage-400 hover:shadow-md'
+                  ? 'border-sage-500 shadow-lg scale-100 md:scale-105 z-10 bg-white hover:shadow-xl hover:-translate-y-1'
+                  : 'border-sage-200/60 shadow-xs hover:border-sage-400 hover:shadow-lg hover:-translate-y-2 hover:scale-[1.02]'
               }`}
             >
               {plan.isPopular && (
@@ -77,7 +77,7 @@ export default function Services({ onSelectServiceForBooking, onSelectServiceFor
 
               <div>
                 <span className="text-[10px] uppercase font-bold tracking-wider text-sand-500 block mb-1">
-                  {categoryLabels[plan.categoria] || plan.categoria}
+                  {categoryLabels[plan.categoria] || plan.categoria || 'Servicio'}
                 </span>
                 
                 <h3 className="font-serif text-xl font-bold text-sage-900 mb-2 leading-tight">
