@@ -6,6 +6,7 @@ import AgendaOnline from '../components/AgendaOnline';
 import Payments from '../components/Payments';
 import { Appointment } from '../types';
 import { Calendar, X } from 'lucide-react';
+import WhatsAppButton from '../components/WhatsAppButton';
 
 export default function Layout() {
   const [isBookingOpen, setIsBookingOpen] = useState(false);
@@ -74,6 +75,9 @@ export default function Layout() {
       </main>
 
       <Footer />
+
+      {/* WhatsApp Floating Button */}
+      <WhatsAppButton />
 
       {/* Sticky Bottom Banner */}
       <StickyBanner onOpenBooking={() => handleOpenBooking()} />
