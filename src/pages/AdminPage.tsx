@@ -19,6 +19,8 @@ interface Service {
   shortDesc: string;
   beneficios: string;
   isPopular: number;
+  link_pago?: string;
+  link_calendario?: string;
 }
 
 interface Article {
@@ -165,6 +167,8 @@ export default function AdminPage() {
       shortDesc: formData.get('shortDesc'),
       beneficios: formData.get('beneficios'),
       isPopular: formData.get('isPopular') === 'on',
+      link_pago: formData.get('link_pago'),
+      link_calendario: formData.get('link_calendario'),
     };
 
     if (editingService) {
@@ -461,6 +465,7 @@ export default function AdminPage() {
                     <th className="text-left px-6 py-3 text-xs font-bold text-sage-600 uppercase">Nombre</th>
                     <th className="text-left px-6 py-3 text-xs font-bold text-sage-600 uppercase">Categoría</th>
                     <th className="text-left px-6 py-3 text-xs font-bold text-sage-600 uppercase">Precio</th>
+                    <th className="text-left px-6 py-3 text-xs font-bold text-sage-600 uppercase">Links</th>
                     <th className="text-left px-6 py-3 text-xs font-bold text-sage-600 uppercase">Popular</th>
                     <th className="text-right px-6 py-3 text-xs font-bold text-sage-600 uppercase">Acciones</th>
                   </tr>
@@ -479,6 +484,23 @@ export default function AdminPage() {
                       </td>
                       <td className="px-6 py-4 text-sm text-sage-700">
                         ${s.precio?.toLocaleString('es-CL')}
+                      </td>
+                      <td className="px-6 py-4">
+                        <div className="flex gap-2">
+                          {s.link_pago && (
+                            <a href={s.link_pago} target="_blank" rel="noopener noreferrer" className="px-2 py-1 bg-emerald-100 text-emerald-700 rounded-lg text-xs font-medium hover:bg-emerald-200 transition-all">
+                              Pago
+                            </a>
+                          )}
+                          {s.link_calendario && (
+                            <a href={s.link_calendario} target="_blank" rel="noopener noreferrer" className="px-2 py-1 bg-blue-100 text-blue-700 rounded-lg text-xs font-medium hover:bg-blue-200 transition-all">
+                              Calendario
+                            </a>
+                          )}
+                          {!s.link_pago && !s.link_calendario && (
+                            <span className="text-sage-400 text-xs">—</span>
+                          )}
+                        </div>
                       </td>
                       <td className="px-6 py-4">
                         {s.isPopular ? (
@@ -690,6 +712,16 @@ export default function AdminPage() {
               <div>
                 <label className="block text-sm font-medium text-sage-700 mb-1">Beneficios (separados por |)</label>
                 <textarea name="beneficios" defaultValue={editingService?.beneficios} rows={4} className="w-full px-4 py-2 rounded-xl border border-sage-200 focus:border-sage-500 outline-none" />
+              </div>
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-medium text-sage-700 mb-1">Link de pago</label>
+                  <input name="link_pago" defaultValue={editingService?.link_pago} placeholder="https://..." className="w-full px-4 py-2 rounded-xl border border-sage-200 focus:border-sage-500 outline-none" />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-sage-700 mb-1">Link de calendario</label>
+                  <input name="link_calendario" defaultValue={editingService?.link_calendario} placeholder="https://calendly.com/..." className="w-full px-4 py-2 rounded-xl border border-sage-200 focus:border-sage-500 outline-none" />
+                </div>
               </div>
               <div className="flex items-center gap-2">
                 <input name="isPopular" type="checkbox" defaultChecked={editingService?.isPopular === 1} className="w-4 h-4 rounded border-sage-300" />

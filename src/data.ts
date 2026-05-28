@@ -20,7 +20,7 @@ export const NUTRITIONIST_INFO = {
   location: 'Asesorías Online para todo Chile desde Santiago. Atención vía videollamada segura.',
   whatsappUrl: 'https://wa.me/56987654321?text=Hola%20Javiera,%20quiero%20agendar%20una%20asesoria%20nutricional%20online.',
   instagramUrl: 'https://www.instagram.com/nutjavieravaldivieso/',
-  instagramHandle: '@nutjavieravaldivieso',
+  instagramHandle: 'nutjavieravaldivieso',
   instagramFollowers: '228K',
   email: 'contacto@javieravaldivieso.cl',
   phone: '+56 9 8765 4321'

@@ -72,7 +72,7 @@ export default function ContactoPage() {
                     </div>
                     <div>
                       <span className="text-xs text-sand-500 font-bold uppercase tracking-wider block">Instagram</span>
-                      <span className="text-sm text-sage-900 font-medium group-hover:text-sage-700 transition-colors">{NUTRITIONIST_INFO.instagramHandle}</span>
+                      <span className="text-sm text-sage-900 font-medium group-hover:text-sage-700 transition-colors">@{NUTRITIONIST_INFO.instagramHandle}</span>
                       <p className="text-xs text-sage-500 mt-0.5">{NUTRITIONIST_INFO.instagramFollowers} seguidores</p>
                     </div>
                   </a>

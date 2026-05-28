@@ -30,19 +30,19 @@ export async function onRequest(context) {
 
     if (request.method === 'POST') {
       const body = await request.json();
-      const { service_id, nombre, precio, precio_original, duracion, categoria, shortDesc, beneficios, isPopular } = body;
+      const { service_id, nombre, precio, precio_original, duracion, categoria, shortDesc, beneficios, isPopular, link_pago, link_calendario } = body;
       const result = await db.prepare(
-        'INSERT INTO servicios (service_id, nombre, precio, precio_original, duracion, categoria, shortDesc, beneficios, isPopular) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)'
-      ).bind(service_id, nombre, precio, precio_original, duracion, categoria, shortDesc, beneficios, isPopular ? 1 : 0).run();
+        'INSERT INTO servicios (service_id, nombre, precio, precio_original, duracion, categoria, shortDesc, beneficios, isPopular, link_pago, link_calendario) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)'
+      ).bind(service_id, nombre, precio, precio_original, duracion, categoria, shortDesc, beneficios, isPopular ? 1 : 0, link_pago || null, link_calendario || null).run();
       return new Response(JSON.stringify({ success: true, id: result.meta.last_row_id }), { headers: corsHeaders });
     }
 
     if (request.method === 'PUT') {
       const body = await request.json();
-      const { id, service_id, nombre, precio, precio_original, duracion, categoria, shortDesc, beneficios, isPopular } = body;
+      const { id, service_id, nombre, precio, precio_original, duracion, categoria, shortDesc, beneficios, isPopular, link_pago, link_calendario } = body;
       await db.prepare(
-        'UPDATE servicios SET service_id=?, nombre=?, precio=?, precio_original=?, duracion=?, categoria=?, shortDesc=?, beneficios=?, isPopular=? WHERE id=?'
-      ).bind(service_id, nombre, precio, precio_original, duracion, categoria, shortDesc, beneficios, isPopular ? 1 : 0, id).run();
+        'UPDATE servicios SET service_id=?, nombre=?, precio=?, precio_original=?, duracion=?, categoria=?, shortDesc=?, beneficios=?, isPopular=?, link_pago=?, link_calendario=? WHERE id=?'
+      ).bind(service_id, nombre, precio, precio_original, duracion, categoria, shortDesc, beneficios, isPopular ? 1 : 0, link_pago || null, link_calendario || null, id).run();
       return new Response(JSON.stringify({ success: true }), { headers: corsHeaders });
     }
 

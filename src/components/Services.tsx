@@ -60,16 +60,21 @@ export default function Services({ onSelectServiceForBooking, onSelectServiceFor
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch mb-14">
-          {(servicios || []).map((plan: any) => (
+          {(servicios || []).slice(0, 3).map((plan: any, index: number) => (
             <div
               key={plan.id}
               className={`relative bg-white rounded-3xl border transition-all duration-500 flex flex-col justify-between p-6 sm:p-8 group cursor-default ${
-                plan.isPopular
+                plan.isPopular === 1
                   ? 'border-sage-500 shadow-lg scale-100 md:scale-105 z-10 bg-white hover:shadow-xl hover:-translate-y-1'
                   : 'border-sage-200/60 shadow-xs hover:border-sage-400 hover:shadow-lg hover:-translate-y-2 hover:scale-[1.02]'
               }`}
             >
-              {plan.isPopular && (
+              {/* Número sutil esquina superior derecha */}
+              <div className="absolute top-3 right-5 z-10">
+                <span className="font-serif text-4xl font-bold text-sage-200/60 select-none">{index + 1}</span>
+              </div>
+
+              {plan.isPopular === 1 && (
                 <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-sage-700 text-white text-[10px] uppercase tracking-widest font-black px-4 py-1.5 rounded-full shadow-xs">
                   El más recomendado
                 </div>
@@ -126,20 +131,36 @@ export default function Services({ onSelectServiceForBooking, onSelectServiceFor
               </div>
 
               <div className="space-y-2.5 mt-auto">
-                <button
-                  onClick={() => onSelectServiceForBooking(plan.service_id || plan.id)}
+                <a
+                  href={plan.link_calendario || '#'}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={(e) => {
+                    if (!plan.link_calendario) {
+                      e.preventDefault();
+                      onSelectServiceForBooking(plan.service_id || plan.id);
+                    }
+                  }}
                   className="w-full py-3.5 bg-sage-700 hover:bg-sage-800 text-white font-bold rounded-full text-xs shadow-xs hover:shadow-sm transition-all flex items-center justify-center space-x-1.5 cursor-pointer"
                 >
                   <Calendar className="w-3.5 h-3.5" />
                   <span>Agendar Fecha y Hora</span>
-                </button>
-                <button
-                  onClick={() => onSelectServiceForPayment(plan.service_id || plan.id)}
+                </a>
+                <a
+                  href={plan.link_pago || '#'}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={(e) => {
+                    if (!plan.link_pago) {
+                      e.preventDefault();
+                      onSelectServiceForPayment(plan.service_id || plan.id);
+                    }
+                  }}
                   className="w-full py-3 bg-white hover:bg-sage-50 border border-sage-200 text-sage-800 font-bold rounded-full text-xs transition-all flex items-center justify-center space-x-1.5 cursor-pointer"
                 >
                   <ShoppingCart className="w-3.5 h-3.5 text-sage-500" />
                   <span>Pagar / Comprar Ahora</span>
-                </button>
+                </a>
               </div>
             </div>
           ))}
