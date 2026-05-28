@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, MessageSquare, Calendar, PhoneCall } from 'lucide-react';
+import { Menu, X, Calendar, PhoneCall } from 'lucide-react';
 import { NUTRITIONIST_INFO } from '../data';
 
 interface NavbarProps {
@@ -147,19 +147,6 @@ export default function Navbar({ onOpenBooking }: NavbarProps) {
         )}
       </nav>
 
-      {/* Floating Sticky Button WhatsApp */}
-      <a
-        href={NUTRITIONIST_INFO.whatsappUrl}
-        target="_blank"
-        rel="noreferrer"
-        className="fixed bottom-6 right-6 md:bottom-8 md:right-8 z-40 bg-emerald-500 hover:bg-emerald-600 active:scale-95 text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center group"
-        aria-label="Contactar por WhatsApp"
-      >
-        <span className="max-w-0 overflow-hidden group-hover:max-w-xs transition-all duration-500 ease-out whitespace-nowrap font-sans font-semibold text-sm pr-0 group-hover:pr-2 block leading-none">
-          ¿Dudas? Chat en vivo
-        </span>
-        <MessageSquare className="w-6 h-6 fill-current text-white" />
-      </a>
     </>
   );
 }
