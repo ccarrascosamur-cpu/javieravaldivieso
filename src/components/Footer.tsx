@@ -162,6 +162,21 @@ export default function Footer() {
           </div>
         </div>
 
+        {/* Credits */}
+        <div className="border-t border-sage-800 pt-6 mt-6 text-center">
+          <p className="text-xs text-sage-500">
+            Sitio desarrollado por{' '}
+            <a 
+              href="https://www.emmagination.cl" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-sage-300 hover:text-white transition-colors font-medium"
+            >
+              Emmagination
+            </a>
+          </p>
+        </div>
+
       </div>
     </footer>
   );
