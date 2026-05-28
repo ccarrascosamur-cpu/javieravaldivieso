@@ -21,7 +21,8 @@ export default function Services({ onSelectServiceForBooking, onSelectServiceFor
             Planes de Acompañamiento Nutricional Premium
           </h2>
           <p className="font-sans text-sage-600 text-sm sm:text-base leading-relaxed">
-            Inversiones pensadas para generar transformaciones metabólicas y digestivas reales. Boletas de salud reembolsables en Isapres y seguros.
+            Inversiones pensadas para generar transformaciones metabólicas y digestivas reales. 
+            Todas las asesorías son 100% online y las boletas son reembolsables en Isapres y seguros.
           </p>
         </div>
 
@@ -77,10 +78,8 @@ export default function Services({ onSelectServiceForBooking, onSelectServiceFor
                     <span className="font-medium text-sage-900">{plan.duration}</span>
                   </div>
                   <div className="flex items-center space-x-2 text-xs text-sage-700 py-1 border-b border-sage-50">
-                    <span className="font-sans font-bold text-sand-600 block w-20">Seguimiento:</span>
-                    <span className="font-medium text-sage-900">
-                      {plan.id === 'programa-transformacion' || plan.id === 'pack-bienestar' ? 'WhatsApp prioritario diario' : 'En sesiones de control'}
-                    </span>
+                    <span className="font-sans font-bold text-sand-600 block w-20">Modalidad:</span>
+                    <span className="font-medium text-sage-900">100% Online (Videollamada)</span>
                   </div>
                   <div className="flex items-center space-x-2 text-xs text-sage-700 py-1 border-b border-sage-50">
                     <span className="font-sans font-bold text-sand-600 block w-20">Recetarios:</span>
@@ -130,7 +129,9 @@ export default function Services({ onSelectServiceForBooking, onSelectServiceFor
             <div>
               <h4 className="font-serif text-lg font-bold text-sage-900 mb-1">¿Cómo realizo el reembolso de mi boleta?</h4>
               <p className="font-sans text-xs text-sage-600 max-w-2xl leading-relaxed">
-                Una vez concluida la consulta o el pago, emitiré tu boleta de honorarios clínica digital. Deberás subir el archivo PDF adjunto a la App o portal de tu Isapre (Colmena, Banmédica, CruzBlanca, etc.). Tu aseguradora gestionará el abono directo a tu cuenta bancaria registrada según tu porcentaje de cobertura contratado.
+                Una vez concluida la asesoría o el pago, emitiré tu boleta de honorarios clínica digital. 
+                Deberás subir el archivo PDF adjunto a la App o portal de tu Isapre (Colmena, Banmédica, CruzBlanca, etc.). 
+                Tu aseguradora gestionará el abono directo a tu cuenta bancaria registrada según tu porcentaje de cobertura contratado.
               </p>
             </div>
           </div>

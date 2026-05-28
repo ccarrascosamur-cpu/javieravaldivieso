@@ -69,10 +69,10 @@ export default function BlogSEO({ onOpenBooking }: BlogSEOProps) {
         <div className="text-center max-w-3xl mx-auto mb-12">
           <span className="text-xs uppercase tracking-widest text-sand-500 font-bold block mb-2">Educación y Salud</span>
           <h2 className="font-serif text-3xl sm:text-4xl font-semibold text-sage-900 mb-4">
-            Portal Nutricional y Contenido SEO
+            Portal Nutricional y Recetas
           </h2>
           <p className="font-sans text-sage-600 text-sm sm:text-base leading-relaxed">
-            Explora recetas nutritivas rápidas, tips de salud hormonal y artículos basados en evidencia clínica. Contenido 100% optimizado para tu bienestar diario.
+            Explora recetas nutritivas rápidas, tips de salud hormonal y artículos basados en evidencia clínica. Contenido pensado para tu bienestar diario.
           </p>
         </div>
 

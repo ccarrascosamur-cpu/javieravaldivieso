@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, MessageSquare, Calendar, PhoneCall, Award } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
+import { Menu, X, MessageSquare, Calendar, PhoneCall } from 'lucide-react';
 import { NUTRITIONIST_INFO } from '../data';
 
 interface NavbarProps {
@@ -9,6 +10,7 @@ interface NavbarProps {
 export default function Navbar({ onOpenBooking }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,14 +20,20 @@ export default function Navbar({ onOpenBooking }: NavbarProps) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    setIsOpen(false);
+  }, [location.pathname]);
+
   const navLinks = [
-    { name: 'Especialidades', href: '#especialidades' },
-    { name: 'Programas', href: '#programas' },
-    { name: 'Mi Enfoque', href: '#enfoque' },
-    { name: 'Testimonios', href: '#testimonios' },
-    { name: 'Blog & Recetas', href: '#blog' },
-    { name: 'Preguntas Frecuentes', href: '#faq' },
+    { name: 'Especialidades', href: '/especialidades' },
+    { name: 'Programas', href: '/programas' },
+    { name: 'Blog & Recetas', href: '/blog' },
+    { name: 'Testimonios', href: '/testimonios' },
+    { name: 'Preguntas Frecuentes', href: '/preguntas-frecuentes' },
+    { name: 'Contacto', href: '/contacto' },
   ];
+
+  const isActive = (href: string) => location.pathname === href;
 
   return (
     <>
@@ -39,25 +47,26 @@ export default function Navbar({ onOpenBooking }: NavbarProps) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 border-b border-sage-900/10 pb-2">
             {/* Logo */}
-            <div className="flex-shrink-0 flex flex-col">
-              <span className="font-serif italic text-xl sm:text-2xl tracking-tight leading-none text-sage-900">
-                {NUTRITIONIST_INFO.name}
-              </span>
-              <span className="font-sans text-[9px] uppercase tracking-[0.2em] text-sage-500 font-bold mt-1.5">
-                Nutrición Clínica & Bienestar Integral
-              </span>
-            </div>
+            <Link to="/" className="flex-shrink-0 flex items-center gap-3">
+              <img 
+                src="/logo-javiera-valdivieso.png" 
+                alt="Javiera Valdivieso Nutricionista"
+                className="h-14 w-auto object-contain"
+              />
+            </Link>
 
             {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center space-x-8">
+            <div className="hidden lg:flex items-center space-x-6">
               {navLinks.map((link) => (
-                <a
+                <Link
                   key={link.name}
-                  href={link.href}
-                  className="font-sans text-sm font-medium text-sage-800 hover:text-sage-500 transition-colors"
+                  to={link.href}
+                  className={`font-sans text-sm font-medium transition-colors ${
+                    isActive(link.href) ? 'text-sage-700 border-b-2 border-sage-500 pb-0.5' : 'text-sage-800 hover:text-sage-500'
+                  }`}
                 >
                   {link.name}
-                </a>
+                </Link>
               ))}
             </div>
 
@@ -105,14 +114,15 @@ export default function Navbar({ onOpenBooking }: NavbarProps) {
           <div className="lg:hidden bg-sand-100 border-b border-sage-200 px-4 pt-2 pb-6 space-y-3 animate-fade-in">
             <div className="space-y-1 block">
               {navLinks.map((link) => (
-                <a
+                <Link
                   key={link.name}
-                  href={link.href}
-                  onClick={() => setIsOpen(false)}
-                  className="block px-3 py-2.5 rounded-md text-base font-medium text-sage-800 hover:bg-sage-50 hover:text-sage-500 transition-all"
+                  to={link.href}
+                  className={`block px-3 py-2.5 rounded-md text-base font-medium transition-all ${
+                    isActive(link.href) ? 'bg-sage-100 text-sage-700' : 'text-sage-800 hover:bg-sage-50 hover:text-sage-500'
+                  }`}
                 >
                   {link.name}
-                </a>
+                </Link>
               ))}
             </div>
             <div className="pt-4 border-t border-sage-200/50 flex flex-col space-y-2">
@@ -126,10 +136,7 @@ export default function Navbar({ onOpenBooking }: NavbarProps) {
                 <span>WhatsApp Consultas</span>
               </a>
               <button
-                onClick={() => {
-                  setIsOpen(false);
-                  onOpenBooking();
-                }}
+                onClick={() => onOpenBooking()}
                 className="flex items-center justify-center space-x-2 w-full py-3 bg-sage-700 hover:bg-sage-800 text-white rounded-full font-medium text-sm shadow-sm transition-all cursor-pointer"
               >
                 <Calendar className="w-4 h-4" />

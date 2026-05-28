@@ -1,9 +1,9 @@
-import { Award, Compass, Sparkles, CheckCircle2, ShieldAlert } from 'lucide-react';
+import { Award, Sparkles, CheckCircle2 } from 'lucide-react';
 import { NUTRITIONIST_INFO } from '../data';
 
 interface HeroProps {
   onOpenBooking: () => void;
-  onViewPrograms: () => void;
+  onViewPrograms?: () => void;
 }
 
 export default function Hero({ onOpenBooking, onViewPrograms }: HeroProps) {
@@ -22,7 +22,7 @@ export default function Hero({ onOpenBooking, onViewPrograms }: HeroProps) {
             <div className="inline-flex items-center space-x-2 bg-sage-100/70 border border-sage-200 text-sage-800 px-3 py-1 ml-0 rounded-full w-fit mb-6 shadow-xs">
               <Sparkles className="w-3.5 h-3.5 text-sage-500 fill-sage-500 animate-pulse" />
               <span className="text-xs font-semibold tracking-wide uppercase font-sans">
-                Acreditada en Registro SIS N° 481029
+                Nutricionista Clínica · Registro SIS N° 481029
               </span>
             </div>
 
@@ -33,7 +33,7 @@ export default function Hero({ onOpenBooking, onViewPrograms }: HeroProps) {
 
             {/* Emotional Subtitle */}
             <p className="font-sans text-base sm:text-lg text-sage-800 font-normal leading-relaxed mb-8 max-w-2xl opacity-90">
-              Pautas 100% personalizadas sin restricciones absurdas ni efecto rebote. Te acompaño con empatía en tu camino metabólico, hormonal o digestivo tanto <strong className="text-sage-950 font-semibold">online por telemedicina</strong> como en mi consulta presencial en <strong className="text-sage-950 font-semibold">Providencia</strong>.
+              Pautas 100% personalizadas sin restricciones absurdas ni efecto rebote. Te acompaño con empatía en tu camino metabólico, hormonal o digestivo desde <strong className="text-sage-950 font-semibold">cualquier parte de Chile</strong> a través de <strong className="text-sage-950 font-semibold">asesorías online por videollamada</strong>.
             </p>
 
             {/* Actions */}
@@ -42,7 +42,7 @@ export default function Hero({ onOpenBooking, onViewPrograms }: HeroProps) {
                 onClick={onOpenBooking}
                 className="px-8 py-4 bg-sage-700 hover:bg-sage-800 text-white font-semibold rounded-full shadow-md hover:shadow-lg transition-all duration-300 text-center cursor-pointer"
               >
-                Agenda tu Consulta
+                Agenda tu Asesoría Online
               </button>
               <button
                 onClick={onViewPrograms}
@@ -79,7 +79,7 @@ export default function Hero({ onOpenBooking, onViewPrograms }: HeroProps) {
             <div className="relative w-full max-w-[380px] rounded-2xl overflow-hidden border-2 border-white shadow-xl aspect-3/4">
               <img
                 src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=600&h=800"
-                alt="María Ignacia Valenzuela - Nutricionista Chilena"
+                alt="Javiera Valdivieso - Nutricionista Chilena"
                 className="w-full h-full object-cover object-top hover:scale-105 transition-all duration-500 ease-out"
                 referrerPolicy="no-referrer"
               />

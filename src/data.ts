@@ -1,7 +1,7 @@
 import { Specialty, ServicePlan, Article, FAQItem, Testimonial } from './types';
 
 export const NUTRITIONIST_INFO = {
-  name: 'María Ignacia Valenzuela',
+  name: 'Javiera Valdivieso',
   title: 'Nutricionista Clínico & Especialista en Salud Integral',
   credentials: [
     'Nutricionista Universitaria (U. de Chile)',
@@ -10,15 +10,20 @@ export const NUTRITIONIST_INFO = {
     'Certificación en Alimentación Basada en Plantas (Laniakea)',
     'Registro SIS N° 481029 (Acreditada por la Súper de Salud Chile)'
   ],
-  bio: 'Hola, soy María Ignacia. Creo en una nutrición coherente, libre de restricciones extremas y centrada en tu bienestar digestivo, hormonal y metabólico. Mi misión es entregarte herramientas empáticas basadas en evidencia científica para que hagas las paces con la comida y construyas un estilo de vida saludable sostenible en el tiempo.',
+  bio: 'Hola, soy Javiera. Creo en una nutrición coherente, libre de restricciones extremas y centrada en tu bienestar digestivo, hormonal y metabólico. Mi misión es entregarte herramientas empáticas basadas en evidencia científica para que hagas las paces con la comida y construyas un estilo de vida saludable sostenible en el tiempo. Soy mamá de 2 niñas y entiendo perfectamente los desafíos de equilibrar salud, familia y trabajo.',
   stats: [
     { label: 'Pacientes Satisfechos', value: '3,200+' },
     { label: 'Años de Experiencia', value: '8+' },
-    { label: 'Modalidad de Atención', value: 'Online & Presencial' },
+    { label: 'Modalidad de Atención', value: '100% Online' },
     { label: 'Certificaciones Activas', value: '5+' }
   ],
-  location: 'Providencia, Santiago (Cercano a Metro Los Leones) & Telemedicina para todo Chile.',
-  whatsappUrl: 'https://wa.me/56987654321?text=Hola%20Maria%20Ignacia,%20quiero%20agendar%20una%20consulta%20nutricional.'
+  location: 'Asesorías Online para todo Chile desde Santiago. Atención vía videollamada segura.',
+  whatsappUrl: 'https://wa.me/56987654321?text=Hola%20Javiera,%20quiero%20agendar%20una%20asesoria%20nutricional%20online.',
+  instagramUrl: 'https://www.instagram.com/nutjavieravaldivieso/',
+  instagramHandle: '@nutjavieravaldivieso',
+  instagramFollowers: '228K',
+  email: 'contacto@javieravaldivieso.cl',
+  phone: '+56 9 8765 4321'
 };
 
 export const SPECIALTIES: Specialty[] = [
@@ -89,7 +94,7 @@ export const SERVICE_PLANS: ServicePlan[] = [
     duration: '60 minutos',
     shortDesc: 'Evaluación integral de salud, análisis de hábitos y plan de acción 100% personalizado. Con boleta reembolsable.',
     benefits: [
-      'Análisis de composición corporal (Antropometría presencial o anamnesis telemática)',
+      'Análisis de composición corporal (Antropometría vía foto o anamnesis telemática)',
       'Revisión completa de exámenes de laboratorio recientes',
       'Pauta alimentaria inicial personalizada en PDF',
       'Guía de porciones y marcas recomendadas en supermercados chilenos',
@@ -121,7 +126,7 @@ export const SERVICE_PLANS: ServicePlan[] = [
     isPopular: true,
     shortDesc: 'La opción ideal para arrancar un cambio real con contención diaria y respuestas a la velocidad de tu celular.',
     benefits: [
-      '1 Consulta Inicial (60 minutos) presencial o remota',
+      '1 Consulta Inicial (60 minutos) vía videollamada',
       '1 Sesión de Control (35 minutos) a las dos semanas',
       'Resolución de dudas por WhatsApp de Lunes a Viernes',
       'Acceso exclusivo a Recetario Premium Prime de Temporada',
@@ -195,9 +200,9 @@ Si sufres de Colon Irritable agudo, guiar una dieta baja en FODMAP (carbohidrato
 Beber agua filtrada fuera de las comidas principales mejora el tránsito digestivo. Evita beber líquidos helados o carbonatados (bebidas con gas) durante el almuerzo o cena, ya que diluyen los jugos gástricos encargados de descomponer los complejos alimentarios.
 
 ### Nutrición integradora en Chile
-Si vives en Santiago o regiones de Chile y sufres dolores gástricos que impiden tu normal desarrollo profesional o social, recuerda que puedes agendar una consulta nutricional online o presencial. Elaboraremos una estrategia digestiva y pauta antiinflamatoria adaptada a tus ritmos de vida.`,
+Si vives en Santiago o regiones de Chile y sufres dolores gástricos que impiden tu normal desarrollo profesional o social, recuerda que puedes agendar una asesoría nutricional online. Elaboraremos una estrategia digestiva y pauta antiinflamatoria adaptada a tus ritmos de vida.`,
     category: 'salud-integral',
-    author: 'María Ignacia Valenzuela',
+    author: 'Javiera Valdivieso',
     date: '24 Mayo 2026',
     readTime: '6 min read',
     image: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=700&h=450',
@@ -242,7 +247,7 @@ Un desayuno balanceado te mantendrá enfocado, controlará tus niveles de insuli
 * **Preparación:** Licúa todos los ingredientes a velocidad máxima durante 1 minuto hasta obtener textura sedosa.
 * **Beneficio:** Nutrientes antioxidantes de rápida absorción con un aporte balanceado de proteína que mantiene a raya el cortisol matutino.`,
     category: 'recetas',
-    author: 'María Ignacia Valenzuela',
+    author: 'Javiera Valdivieso',
     date: '18 Mayo 2026',
     readTime: '4 min read',
     image: 'https://images.unsplash.com/photo-1494390248081-4e521a5940db?auto=format&fit=crop&q=80&w=700&h=450',
@@ -285,9 +290,9 @@ Al retrasar la absorción de glucosa con fibra y proteínas previas, evitas pico
 Tus músculos son los principales consumidores de glucosa de tu organismo. Cuando levantas peso, haces entrenamientos de fuerza o HIIT, tus contracciones musculares absorben azúcar transportándola directamente al músculo **sin mediación de la insulina**. Ejercitar tus músculos actúa literalmente como un fármaco natural sensibilizador.
 
 ### Reembolsos y exámenes de sangre en Chile
-Tener un diagnóstico médico de resistencia a la insulina puede sonar alarmante, pero con un plan alimentario coherente de 3 meses enfocado en hábitos sostenibles, es una condición metabólica altamente reversible. En nuestra consulta emitimos boletas que puedes reembolsar en Isapres (como Banmédica, CruzBlanca, Colmena) o solicitar reembolsos vía seguros complementarios de salud. Un cambio real es perfectamente posible.`,
+Tener un diagnóstico médico de resistencia a la insulina puede sonar alarmante, pero con un plan alimentario coherente de 3 meses enfocado en hábitos sostenibles, es una condición metabólica altamente reversible. En nuestra asesoría emitimos boletas que puedes reembolsar en Isapres (como Banmédica, CruzBlanca, Colmena) o solicitar reembolsos vía seguros complementarios de salud. Un cambio real es perfectamente posible.`,
     category: 'nutricion',
-    author: 'María Ignacia Valenzuela',
+    author: 'Javiera Valdivieso',
     date: '10 Mayo 2026',
     readTime: '7 min read',
     image: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&q=80&w=700&h=450',
@@ -302,7 +307,7 @@ export const TESTIMONIALS: Testimonial[] = [
     name: 'Carolina Henríquez',
     age: 34,
     city: 'Concepción',
-    text: 'Llegué donde María Ignacia desesperada por mi colon irritable e hinchazón diaria. Después de solo un mes con el protocolo FODMAP y sus consejos cariñosos, mi abdomen volvió a estar plano y sin dolores gástricos. ¡Aprendí a comer sin miedo!',
+    text: 'Llegué donde Javiera desesperada por mi colon irritable e hinchazón diaria. Después de solo un mes con el protocolo FODMAP y sus consejos cariñosos, mi abdomen volvió a estar plano y sin dolores gástricos. ¡Aprendí a comer sin miedo! La asesoría online fue súper cómoda desde mi casa.',
     rating: 5,
     condition: 'Colon Irritable & Inflamación',
     image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=120&h=120'
@@ -312,7 +317,7 @@ export const TESTIMONIALS: Testimonial[] = [
     name: 'Sebastián Oyarzún',
     age: 29,
     city: 'Santiago',
-    text: 'Entrenaba crossfit y comía harto, pero siempre con bajas energías en la tarde. María Ignacia me calculó los carbohidratos según mis bloques de ejercicio. Resultados increíbles: aumenté 3 kilos de músculo y bajé mi porcentaje de grasa exponencialmente.',
+    text: 'Entrenaba crossfit y comía harto, pero siempre con bajas energías en la tarde. Javiera me calculó los carbohidratos según mis bloques de ejercicio. Resultados increíbles: aumenté 3 kilos de músculo y bajé mi porcentaje de grasa exponencialmente. Todo vía online, sin perder tiempo en traslados.',
     rating: 5,
     condition: 'Nutrición Deportiva & Rendimiento',
     image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=120&h=120'
@@ -332,7 +337,7 @@ export const TESTIMONIALS: Testimonial[] = [
     name: 'Fernanda Solís',
     age: 41,
     city: 'Antofagasta',
-    text: 'La consulta online es fantástica. Soy del norte y gracias a la videollamada y al soporte continuo de WhatsApp logré regular mis ciclos hormonales del SOP. Es sumamente empática, una profesional gigante, se siente verdaderamente cercana.',
+    text: 'La asesoría online es fantástica. Soy del norte y gracias a la videollamada y al soporte continuo de WhatsApp logré regular mis ciclos hormonales del SOP. Es sumamente empática, una profesional gigante, se siente verdaderamente cercana. Recomiendo 100% sus asesorías online.',
     rating: 5,
     condition: 'Salud Hormonal y SOP',
     image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=120&h=120'
@@ -341,18 +346,18 @@ export const TESTIMONIALS: Testimonial[] = [
 
 export const FAQS: FAQItem[] = [
   {
-    question: '¿Cómo funciona la modalidad de consulta online?',
-    answer: 'La consulta online o de telemedicina se realiza vía videollamada segura (por Google Meet o Zoom). Tiene exactamente la misma rigurosidad clínica que una sesión presencial. Antes de la sesión, completas un formulario gástrico e historial clínico, y me compartes tus exámenes recientes. Tras la videollamada, te envío tu pauta 100% personalizada en menos de 24 horas hábiles a tu correo y cuenta de WhatsApp.',
+    question: '¿Cómo funciona la modalidad de asesoría online?',
+    answer: 'La asesoría online se realiza vía videollamada segura (por Google Meet o Zoom) desde cualquier parte de Chile. Tiene exactamente la misma rigurosidad clínica que una sesión presencial. Antes de la sesión, completas un formulario gástrico e historial clínico, y me compartes tus exámenes recientes. Tras la videollamada, te envío tu pauta 100% personalizada en menos de 24 horas hábiles a tu correo y cuenta de WhatsApp.',
     category: 'consulta'
   },
   {
-    question: '¿Pueden reembolsarse las consultas en Isapres o seguros complementarios?',
+    question: '¿Pueden reembolsarse las asesorías en Isapres o seguros complementarios?',
     answer: 'Sí, absolutamente. Yo emito una Boleta de Honorarios profesional de salud autorizada por el Servicio de Impuestos Internos (SII), detallando mi registro nacional de prestadores del Ministerio de Salud (SIS). Con este documento, lo adjuntas en la sucursal virtual de tu Isapre (Colmena, Banmédica, Consalud, Colmena, Nueva Masvida, CruzBlanca, etc.) para que te reembolsen según tu plan. También es válida para seguros colectivos como Bicevida, Metlife, Consorcio, Chilena, etc.',
     category: 'isapre-fonasa'
   },
   {
-    question: '¿Atiende pacientes por Fonasa?',
-    answer: 'Por Fonasa, puedes atenderte de forma particular por telemedicina o presencial. Al finalizar la consulta te emito la boleta correspondiente, y si cuentas con un seguro complementario individual o laboral, puedes reembolsar un porcentaje del valor total.',
+    question: '¿Atiendes pacientes por Fonasa?',
+    answer: 'Por Fonasa, puedes atenderte de forma particular por asesoría online. Al finalizar la sesión te emito la boleta correspondiente, y si cuentas con un seguro complementario individual o laboral, puedes reembolsar un porcentaje del valor total.',
     category: 'isapre-fonasa'
   },
   {

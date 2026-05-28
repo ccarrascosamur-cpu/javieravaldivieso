@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { 
   Activity, 
   Sparkles, 
@@ -8,7 +9,6 @@ import {
   TrendingDown, 
   Baby, 
   Smile, 
-  Plus, 
   X, 
   CheckCircle2, 
   ArrowRight,
@@ -100,7 +100,7 @@ export default function Specialties({ onOpenBooking }: SpecialtiesProps) {
             onClick={() => onOpenBooking()}
             className="inline-flex items-center space-x-2 text-sage-800 font-bold text-sm underline hover:text-sage-500 hover:no-underline cursor-pointer"
           >
-            <span>Agenda un llamado breve de orientación gratuita (10 min)</span>
+            <span>Agenda una asesoría de orientación gratuita (10 min)</span>
             <ArrowRight className="w-4 h-4" />
           </button>
         </div>
@@ -146,7 +146,7 @@ export default function Specialties({ onOpenBooking }: SpecialtiesProps) {
               
               {/* Highlight Checklist */}
               <div className="bg-sage-100/50 rounded-xl p-4 border border-sage-200/30">
-                <span className="text-xs uppercase tracking-wider text-sage-800 font-bold block mb-2">La consulta incluye:</span>
+                <span className="text-xs uppercase tracking-wider text-sage-800 font-bold block mb-2">La asesoría incluye:</span>
                 <ul className="space-y-2 text-xs text-sage-700 font-medium">
                   <li className="flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 text-sage-500 flex-shrink-0" />
@@ -179,7 +179,7 @@ export default function Specialties({ onOpenBooking }: SpecialtiesProps) {
                 }}
                 className="py-3 bg-sage-700 hover:bg-sage-800 text-white font-bold rounded-full text-sm transition-all cursor-pointer shadow-xs"
               >
-                Agendar Hora
+                Agendar Asesoría
               </button>
             </div>
           </div>

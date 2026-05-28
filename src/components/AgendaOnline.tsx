@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Calendar as CalendarIcon, Clock, ChevronRight, Check, AlertCircle, ShoppingBag, ShieldCheck, Tag } from 'lucide-react';
+import { Calendar as CalendarIcon, Clock, ChevronRight, Check, AlertCircle, ShieldCheck, Tag } from 'lucide-react';
 import { SERVICE_PLANS } from '../data';
 import { ServicePlan, Appointment } from '../types';
 
@@ -301,51 +301,51 @@ export default function AgendaOnline({ initialServiceId, onAppointmentConfirmed,
             <div className="space-y-6">
               <div>
                 <h4 className="font-serif text-xl font-bold text-sage-900 mb-1">2. Elige Fecha y Hora</h4>
-                <p className="text-xs text-sage-500">Horarios en huso de Santiago de Chile (CLT).</p>
+                <p className="text-xs text-sage-500">Selecciona un bloque disponible para tu asesoría online.</p>
               </div>
 
-              {/* Dates grid */}
+              {/* Date Selection */}
               <div className="space-y-3">
-                <label className="text-xs uppercase tracking-wider font-bold text-sage-800">Fechas Disponibles</label>
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
-                  {availableDates.map((d) => (
+                <label className="text-xs uppercase tracking-wider font-bold text-sage-800">Próximas Fechas Disponibles</label>
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                  {availableDates.map((date) => (
                     <button
-                      key={d}
-                      onClick={() => setSelectedDate(d)}
-                      className={`p-2.5 rounded-lg text-center border text-xs capitalize transition-all cursor-pointer ${
-                        selectedDate === d
-                          ? 'border-sage-700 bg-sage-50 text-sage-900 font-bold shadow-xs'
-                          : 'border-sage-200 hover:border-sage-450 text-sage-700'
+                      key={date}
+                      onClick={() => setSelectedDate(date)}
+                      className={`p-3 rounded-xl text-center border text-xs transition-all cursor-pointer ${
+                        selectedDate === date
+                          ? 'border-sage-700 bg-sage-50 text-sage-900 font-bold'
+                          : 'border-sage-200 hover:border-sage-500 text-sage-600'
                       }`}
                     >
-                      {d}
+                      <span className="capitalize">{date}</span>
                     </button>
                   ))}
                 </div>
               </div>
 
-              {/* Time slots */}
+              {/* Time Slot Selection */}
               <div className="space-y-3">
-                <label className="text-xs uppercase tracking-wider font-bold text-sage-800">Bloques de Hora</label>
+                <label className="text-xs uppercase tracking-wider font-bold text-sage-800">Horarios Disponibles</label>
                 <div className="grid grid-cols-4 gap-2">
-                  {timeSlots.map((slot) => (
+                  {timeSlots.map((time) => (
                     <button
-                      key={slot}
-                      onClick={() => setSelectedTimeSlot(slot)}
-                      className={`p-2 rounded-lg text-center border text-xs transition-all cursor-pointer ${
-                        selectedTimeSlot === slot
-                          ? 'border-sage-700 bg-sage-50 text-sage-900 font-bold shadow-xs'
-                          : 'border-sage-200 hover:border-sage-450 text-sage-600'
+                      key={time}
+                      onClick={() => setSelectedTimeSlot(time)}
+                      className={`p-2.5 rounded-xl text-center border text-xs transition-all cursor-pointer ${
+                        selectedTimeSlot === time
+                          ? 'border-sage-700 bg-sage-50 text-sage-900 font-bold'
+                          : 'border-sage-200 hover:border-sage-500 text-sage-600'
                       }`}
                     >
-                      {slot}
+                      {time}
                     </button>
                   ))}
                 </div>
               </div>
 
               {errorMsg && (
-                <div className="flex items-center space-x-2 text-rose-600 text-xs bg-rose-50 p-2.5 rounded-lg">
+                <div className="flex items-center gap-2 text-xs text-rose-600 bg-rose-50 p-3 rounded-lg">
                   <AlertCircle className="w-4 h-4 flex-shrink-0" />
                   <span>{errorMsg}</span>
                 </div>
@@ -355,7 +355,7 @@ export default function AgendaOnline({ initialServiceId, onAppointmentConfirmed,
               <div className="pt-4 flex justify-between">
                 <button
                   onClick={() => setStep(1)}
-                  className="px-5 py-2.5 bg-white hover:bg-sage-100 border border-sage-200 text-sage-800 font-bold rounded-full text-sm transition-all cursor-pointer"
+                  className="px-5 py-2.5 border border-sage-200 rounded-full text-sage-700 font-bold text-sm hover:bg-sage-50 transition-all cursor-pointer"
                 >
                   Atrás
                 </button>
@@ -371,112 +371,112 @@ export default function AgendaOnline({ initialServiceId, onAppointmentConfirmed,
           )}
 
           {step === 3 && (
-            <form onSubmit={handleBookingSubmit} className="space-y-4">
+            <form onSubmit={handleBookingSubmit} className="space-y-5">
               <div>
-                <h4 className="font-serif text-xl font-bold text-sage-900 mb-1">3. Datos de Paciente y Confirmación</h4>
-                <p className="text-xs text-sage-500">Requerido para emitir boleta de honorarios de salud reembolsable.</p>
+                <h4 className="font-serif text-xl font-bold text-sage-900 mb-1">3. Tus Datos Personales</h4>
+                <p className="text-xs text-sage-500">Ingresa tus datos para confirmar la reserva.</p>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="text-xs font-bold text-sage-700 block mb-1">Nombre Completo *</label>
+                  <label className="text-xs font-bold text-sage-700 block mb-1">Nombre Completo</label>
                   <input
                     type="text"
                     required
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    placeholder="Ej: Sofía Lagos"
-                    className="w-full px-3.5 py-2 border border-sage-300 rounded-lg text-sm focus:outline-hidden focus:border-sage-700"
+                    className="w-full px-3.5 py-2 border border-sage-300 rounded-lg text-sm bg-white"
+                    placeholder="Ej: María González"
                   />
                 </div>
                 <div>
-                  <label className="text-xs font-bold text-sage-700 block mb-1">RUT Paciente *</label>
+                  <label className="text-xs font-bold text-sage-700 block mb-1">RUT (Chileno)</label>
                   <input
                     type="text"
                     required
-                    maxLength={12}
                     value={rut}
                     onChange={handleRutChange}
-                    placeholder="Ej: 19.345.678-9"
-                    className="w-full px-3.5 py-2 border border-sage-300 rounded-lg text-sm focus:outline-hidden focus:border-sage-700"
+                    className="w-full px-3.5 py-2 border border-sage-300 rounded-lg text-sm bg-white font-mono"
+                    placeholder="12.345.678-9"
                   />
                 </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="text-xs font-bold text-sage-700 block mb-1">Correo Electrónico *</label>
+                  <label className="text-xs font-bold text-sage-700 block mb-1">Correo Electrónico</label>
                   <input
                     type="email"
                     required
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    placeholder="Ej: sofia@correo.com"
-                    className="w-full px-3.5 py-2 border border-sage-300 rounded-lg text-sm focus:outline-hidden focus:border-sage-700"
+                    className="w-full px-3.5 py-2 border border-sage-300 rounded-lg text-sm bg-white"
+                    placeholder="tu@email.cl"
                   />
                 </div>
                 <div>
-                  <label className="text-xs font-bold text-sage-700 block mb-1">Teléfono Móvil *</label>
-                  <div className="flex">
-                    <span className="inline-flex items-center px-3 rounded-l-lg border border-r-0 border-sage-300 bg-sage-50 text-xs text-sage-500">+56</span>
-                    <input
-                      type="tel"
-                      required
-                      value={phone}
-                      onChange={(e) => setPhone(e.target.value)}
-                      placeholder="987654321"
-                      className="w-full px-3.5 py-2 border border-sage-300 rounded-r-lg text-sm focus:outline-hidden focus:border-sage-700"
-                    />
-                  </div>
-                </div>
-                <div>
-                  <label className="text-xs font-bold text-sage-700 block mb-1">Previsión / Isapre para Reembolso</label>
-                  <select
-                    value={healthProvider}
-                    onChange={(e) => setHealthProvider(e.target.value)}
-                    className="w-full px-3.5 py-2 border border-sage-300 rounded-lg text-sm bg-white focus:outline-hidden focus:border-sage-700"
-                  >
-                    <option value="Colmena">Isapre Colmena</option>
-                    <option value="Banmédica">Isapre Banmédica</option>
-                    <option value="CruzBlanca">Isapre CruzBlanca</option>
-                    <option value="Consalud">Isapre Consalud</option>
-                    <option value="Nueva Masvida">Isapre Nueva Masvida</option>
-                    <option value="Vida Tres">Isapre Vida Tres</option>
-                    <option value="Fonasa">Fonasa / Particular</option>
-                    <option value="Sura">Seguro Sura / Mutual</option>
-                  </select>
-                </div>
-                <div>
-                  <label className="text-xs font-bold text-sage-700 block mb-1">Nota adicional (Opcional)</label>
+                  <label className="text-xs font-bold text-sage-700 block mb-1">Teléfono / WhatsApp</label>
                   <input
-                    type="text"
-                    value={notes}
-                    onChange={(e) => setNotes(e.target.value)}
-                    placeholder="Ej: Sufro SIBO, resistencia ins."
-                    className="w-full px-3.5 py-2 border border-sage-300 rounded-lg text-sm focus:outline-hidden focus:border-sage-700"
+                    type="tel"
+                    required
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    className="w-full px-3.5 py-2 border border-sage-300 rounded-lg text-sm bg-white"
+                    placeholder="+56 9 1234 5678"
                   />
                 </div>
               </div>
 
+              <div>
+                <label className="text-xs font-bold text-sage-700 block mb-1">Previsión de Salud</label>
+                <select
+                  value={healthProvider}
+                  onChange={(e) => setHealthProvider(e.target.value)}
+                  className="w-full px-3.5 py-2 border border-sage-300 rounded-lg text-sm bg-white"
+                >
+                  <option value="Colmena">Colmena</option>
+                  <option value="Banmédica">Banmédica</option>
+                  <option value="CruzBlanca">CruzBlanca</option>
+                  <option value="Consalud">Consalud</option>
+                  <option value="Nueva Masvida">Nueva Masvida</option>
+                  <option value="Fonasa">Fonasa</option>
+                  <option value="Particular">Particular / Otro</option>
+                </select>
+              </div>
+
+              <div>
+                <label className="text-xs font-bold text-sage-700 block mb-1">Notas Adicionales (Opcional)</label>
+                <textarea
+                  value={notes}
+                  onChange={(e) => setNotes(e.target.value)}
+                  rows={3}
+                  className="w-full px-3.5 py-2 border border-sage-300 rounded-lg text-sm bg-white resize-none"
+                  placeholder="Cuéntame brevemente tu motivo de consulta..."
+                />
+              </div>
+
               {errorMsg && (
-                <div className="flex items-center space-x-2 text-rose-600 text-xs bg-rose-50 p-2.5 rounded-lg mt-1">
+                <div className="flex items-center gap-2 text-xs text-rose-600 bg-rose-50 p-3 rounded-lg">
                   <AlertCircle className="w-4 h-4 flex-shrink-0" />
                   <span>{errorMsg}</span>
                 </div>
               )}
 
-              {/* Booking Actions */}
-              <div className="pt-4 flex justify-between items-center border-t border-sage-200/50 mt-4">
+              {/* Actions */}
+              <div className="pt-4 flex justify-between">
                 <button
                   type="button"
                   onClick={() => setStep(2)}
-                  className="px-5 py-2.5 bg-white hover:bg-sage-100 border border-sage-200 text-sage-800 font-bold rounded-full text-sm transition-all cursor-pointer"
+                  className="px-5 py-2.5 border border-sage-200 rounded-full text-sage-700 font-bold text-sm hover:bg-sage-50 transition-all cursor-pointer"
                 >
                   Atrás
                 </button>
                 <button
                   type="submit"
-                  className="flex items-center space-x-2 px-7 py-3 bg-emerald-700 hover:bg-emerald-800 text-white font-bold rounded-full text-sm shadow-md hover:shadow-lg transition-all cursor-pointer"
+                  className="flex items-center space-x-1.5 px-6 py-3 bg-sage-700 hover:bg-sage-800 text-white font-bold rounded-full text-sm shadow-xs transition-all cursor-pointer"
                 >
-                  <ShoppingBag className="w-4 h-4" />
-                  <span>Agendar y Pagar Consulta</span>
+                  <Check className="w-4 h-4" />
+                  <span>Agendar y Pagar Asesoría</span>
                 </button>
               </div>
             </form>

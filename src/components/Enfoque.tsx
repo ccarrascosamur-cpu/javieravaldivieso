@@ -24,7 +24,7 @@ export default function Enfoque() {
               {/* Overlaid Quotes/Insight */}
               <div className="absolute bottom-6 left-6 right-6 bg-sage-900/90 backdrop-blur-md p-5 rounded-2xl text-left border border-white/10 shadow-lg">
                 <p className="font-serif italic text-sm text-sand-500 mb-2">"La salud no es un peso ideal, es un estado de paz digestiva, balance hormonal y libertad de pensamiento."</p>
-                <p className="font-sans text-[10px] uppercase tracking-widest text-white/70 font-bold">— Ma. Ignacia Valenzuela</p>
+                <p className="font-sans text-[10px] uppercase tracking-widest text-white/70 font-bold">— {NUTRITIONIST_INFO.name}</p>
               </div>
             </div>
           </div>
@@ -41,7 +41,7 @@ export default function Enfoque() {
             </p>
 
             <p className="font-sans text-sage-800 text-sm sm:text-base leading-relaxed mb-8">
-              Mi metodología se basa en la <strong>educación alimentaria adaptada</strong>. En lugar de entregarte una lista rígida de alimentos prohibidos, analizamos tu rutina chilena (tus horarios de oficina, tus gustos o antojos, tu cocinería del día a día) y armamos un pilar de hábitos sostenibles que giran a tu favor.
+              Mi metodología se basa en la <strong>educación alimentaria adaptada</strong>. En lugar de entregarte una lista rígida de alimentos prohibidos, analizamos tu rutina chilena (tus horarios de oficina, tus gustos o antojos, tu cocinería del día a día) y armamos un pilar de hábitos sostenibles que giran a tu favor. Todo desde la comodidad de una <strong>asesoría online</strong> que se adapta a tu agenda.
             </p>
 
             {/* Crucial pillars list grids */}

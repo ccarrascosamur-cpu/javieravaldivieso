@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Mail, MapPin, Phone, Instagram, Send, Heart, ShieldCheck, Check } from 'lucide-react';
 import { NUTRITIONIST_INFO } from '../data';
 
@@ -21,15 +22,23 @@ export default function Footer() {
           
           {/* Col 4 - Clinician intro */}
           <div className="md:col-span-4 space-y-4">
-            <span className="font-serif text-2xl font-bold tracking-tight text-white flex items-center gap-1.5">
-              <span className="inline-block w-2.5 h-2.5 rounded-full bg-sand-300"></span>
-              {NUTRITIONIST_INFO.name}
-            </span>
-            <p className="text-xs text-sage-300 font-medium tracking-wide uppercase">
-              Nutrición Clínica Integrativa - Registro SIS 481029
-            </p>
+            <Link to="/" className="flex items-center gap-3">
+              <img 
+                src="/logo-javiera-valdivieso.png" 
+                alt="Javiera Valdivieso"
+                className="h-12 w-auto object-contain brightness-200"
+              />
+              <div>
+                <span className="font-serif text-2xl font-bold tracking-tight text-white block">
+                  {NUTRITIONIST_INFO.name}
+                </span>
+                <span className="text-xs text-sage-300 font-medium tracking-wide uppercase">
+                  Nutricionista · Asesorías Online Chile
+                </span>
+              </div>
+            </Link>
             <p className="text-xs text-sage-400 leading-relaxed">
-              Trabajamos con pautas nutricionales personalizadas libres de extremos. Especialista en resistencia a la insulina, salud digestiva (SIBO/IBS) y balance hormonal femenino.
+              Trabajamos con pautas nutricionales personalizadas libres de extremos. Especialista en resistencia a la insulina, salud digestiva (SIBO/IBS) y balance hormonal femenino. Atención 100% online para todo Chile.
             </p>
             <div className="flex items-center space-x-2 text-xs text-sage-300">
               <ShieldCheck className="w-4 h-4 text-emerald-400" />
@@ -41,12 +50,12 @@ export default function Footer() {
           <div className="md:col-span-2 space-y-4">
             <h4 className="font-serif text-sm font-bold text-white uppercase tracking-wider">Secciones</h4>
             <ul className="space-y-2 text-xs text-sage-400">
-              <li><a href="#especialidades" className="hover:text-sand-300 transition-colors">Especialidades</a></li>
-              <li><a href="#programas" className="hover:text-sand-300 transition-colors">Programas</a></li>
-              <li><a href="#enfoque" className="hover:text-sand-300 transition-colors">Mi Enfoque</a></li>
-              <li><a href="#testimonios" className="hover:text-sand-300 transition-colors">Testimonios</a></li>
-              <li><a href="#blog" className="hover:text-sand-300 transition-colors">Blog & Recetas</a></li>
-              <li><a href="#faq" className="hover:text-sand-300 transition-colors">Preguntas Frecuentes</a></li>
+              <li><Link to="/especialidades" className="hover:text-sand-300 transition-colors">Especialidades</Link></li>
+              <li><Link to="/programas" className="hover:text-sand-300 transition-colors">Programas</Link></li>
+              <li><Link to="/blog" className="hover:text-sand-300 transition-colors">Blog & Recetas</Link></li>
+              <li><Link to="/testimonios" className="hover:text-sand-300 transition-colors">Testimonios</Link></li>
+              <li><Link to="/preguntas-frecuentes" className="hover:text-sand-300 transition-colors">Preguntas Frecuentes</Link></li>
+              <li><Link to="/contacto" className="hover:text-sand-300 transition-colors">Contacto</Link></li>
             </ul>
           </div>
 
@@ -56,37 +65,28 @@ export default function Footer() {
             <ul className="space-y-3.5 text-xs text-sage-400">
               <li className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-sand-300 flex-shrink-0 mt-0.5" />
-                <span>Providencia, Santiago, Chile (Cercano a Metro Los Leones).</span>
+                <span>Asesorías Online para todo Chile. Desde Santiago, Chile.</span>
               </li>
               <li className="flex items-center gap-2.5">
                 <Mail className="w-4 h-4 text-sand-300 flex-shrink-0" />
-                <a href="mailto:contacto@nutriconstanza.cl" className="hover:text-sand-300 transition-colors">nutricion.mivalenzuela@gmail.com</a>
+                <a href={`mailto:${NUTRITIONIST_INFO.email}`} className="hover:text-sand-300 transition-colors">{NUTRITIONIST_INFO.email}</a>
               </li>
               <li className="flex items-center gap-2.5">
                 <Phone className="w-4 h-4 text-sand-300 flex-shrink-0" />
-                <span>+56 9 8765 4321</span>
+                <span>{NUTRITIONIST_INFO.phone}</span>
               </li>
             </ul>
             
             {/* Social handles */}
             <div className="flex items-center space-x-3.5 pt-2">
               <a
-                href="https://instagram.com"
+                href={NUTRITIONIST_INFO.instagramUrl}
                 target="_blank"
                 rel="noreferrer"
                 className="w-8 h-8 rounded-full bg-sage-800 hover:bg-sage-700 text-sand-300 hover:text-white flex items-center justify-center transition-colors"
                 aria-label="Instagram Nutricionista"
               >
                 <Instagram className="w-4 h-4" />
-              </a>
-              <a
-                href="https://tiktok.com"
-                target="_blank"
-                rel="noreferrer"
-                className="w-8 h-8 rounded-full bg-sage-800 hover:bg-sage-700 text-sand-300 hover:text-white flex items-center justify-center transition-colors font-sans text-xs font-black"
-                title="Siguenos en TikTok"
-              >
-                dτ
               </a>
               <a
                 href={NUTRITIONIST_INFO.whatsappUrl}
@@ -135,10 +135,10 @@ export default function Footer() {
 
         </div>
 
-        {/* Footer bottom bar (Credits, Chilean flags info, Payment systems labels) */}
+        {/* Footer bottom bar */}
         <div className="border-t border-sage-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-sage-400">
           <div className="flex items-center space-x-2">
-            <span>© {new Date().getFullYear()} Nutrición {NUTRITIONIST_INFO.name}. Todos los derechos reservados.</span>
+            <span>© {new Date().getFullYear()} {NUTRITIONIST_INFO.name}. Todos los derechos reservados.</span>
             <span className="text-sage-600">|</span>
             <span className="flex items-center gap-1">
               <span>Hecho en Chile</span>

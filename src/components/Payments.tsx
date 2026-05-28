@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { CreditCard, CreditCard as CardIcon, Check, Loader2, ArrowLeft, Printer, Download, Receipt, ExternalLink, ShieldCheck } from 'lucide-react';
+import { CreditCard, Check, Loader2, ArrowLeft, Printer, Receipt, ShieldCheck } from 'lucide-react';
 import { Appointment } from '../types';
+import { NUTRITIONIST_INFO } from '../data';
 
 interface PaymentsProps {
   activeAppointment: Appointment | null;
@@ -215,7 +216,7 @@ export default function Payments({ activeAppointment, onPaymentSuccess, onCancel
           <div className="flex justify-between items-center border-b border-slate-200 pb-4 mb-4">
             <div className="leading-none">
               <p className="text-[10px] font-black text-slate-400 tracking-wider">COMERCIO ADHERIDO</p>
-              <h5 className="font-sans text-xs font-extrabold text-[#0064f9]">MA. IG. VALENZUELA NUTRA</h5>
+              <h5 className="font-sans text-xs font-extrabold text-[#0064f9]">{NUTRITIONIST_INFO.name.toUpperCase()} NUTRA</h5>
             </div>
             {paymentProvider === 'webpay' && (
               <span className="text-sm font-black text-[#ff3355] italic">Webpay Plus</span>
@@ -294,11 +295,11 @@ export default function Payments({ activeAppointment, onPaymentSuccess, onCancel
 
             {/* Clinician Details */}
             <div className="border-b border-sage-100 pb-4 mb-6">
-              <h5 className="font-serif text-lg font-black text-sage-900 leading-tight">MARÍA IGNACIA VALENZUELA</h5>
+              <h5 className="font-serif text-lg font-black text-sage-900 leading-tight">{NUTRITIONIST_INFO.name.toUpperCase()}</h5>
               <p className="text-xs text-sage-500 font-medium">Nutricion Clínica y Salud Digestiva Integrativa</p>
               <p className="text-xs text-sage-500 font-medium">R.U.T.: 14.810.291-K</p>
               <p className="text-xs text-sage-500 font-medium font-bold">Registro SIS Superintendencia de Salud: N° 481029</p>
-              <p className="text-xs text-sage-500 font-medium">Providencia, Santiago, Chile</p>
+              <p className="text-xs text-sage-500 font-medium">Santiago, Chile</p>
             </div>
 
             {/* Receipt metadata details */}
@@ -379,7 +380,7 @@ export default function Payments({ activeAppointment, onPaymentSuccess, onCancel
               <span>Imprimir / PDF</span>
             </button>
             <button
-              onClick={onCancel} // Simply reset/close payment screen
+              onClick={onCancel}
               className="px-6 py-2.5 bg-sage-700 hover:bg-sage-800 text-white rounded-full font-bold text-sm flex items-center space-x-2 cursor-pointer shadow-xs transition-all"
             >
               <span>Volver al Inicio</span>
