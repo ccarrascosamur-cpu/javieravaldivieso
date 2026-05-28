@@ -7,6 +7,7 @@ import Services from '../components/Services';
 import Testimonials from '../components/Testimonials';
 import BlogSEO from '../components/BlogSEO';
 import FAQ from '../components/FAQ';
+import InstagramFeed from '../components/InstagramFeed';
 
 interface OutletContext {
   onOpenBooking: (serviceId?: string) => void;
@@ -75,6 +76,7 @@ export default function HomePage() {
       />
       <Testimonials />
       <BlogSEO onOpenBooking={() => onOpenBooking()} />
+      <InstagramFeed />
       <FAQ />
     </>
   );
