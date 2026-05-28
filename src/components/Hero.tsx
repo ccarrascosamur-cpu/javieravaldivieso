@@ -18,15 +18,7 @@ export default function Hero({ onOpenBooking, onViewPrograms }: HeroProps) {
           
           {/* Main Copy Content */}
           <div className="lg:col-span-7 flex flex-col justify-center text-left">
-            {/* Soft Badge */}
-            <div className="inline-flex items-center space-x-2 bg-sage-100/70 border border-sage-200 text-sage-800 px-3 py-1 ml-0 rounded-full w-fit mb-6 shadow-xs">
-              <Sparkles className="w-3.5 h-3.5 text-sage-500 fill-sage-500 animate-pulse" />
-              <span className="text-xs font-semibold tracking-wide uppercase font-sans">
-                Nutricionista Clínica · Registro SIS N° 481029
-              </span>
-            </div>
-
-            {/* Powerful Editorial Headline */}
+            {/* Powerful Editorial Headline -->
             <h1 className="font-serif text-4xl sm:text-5xl lg:text-5xl font-medium tracking-tight text-sage-900 leading-[1.15] mb-6">
               Sana tu abdomen, <span className="italic text-sage-700 font-normal">regulariza tus hormonas</span> y haz las paces con la comida.
             </h1>

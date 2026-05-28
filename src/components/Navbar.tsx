@@ -47,11 +47,11 @@ export default function Navbar({ onOpenBooking }: NavbarProps) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 border-b border-sage-900/10 pb-2">
             {/* Logo */}
-            <Link to="/" className="flex-shrink-0 flex items-center gap-3">
+            <Link to="/" className="flex-shrink-0 flex items-center">
               <img 
                 src="/logo-javiera-valdivieso.png" 
                 alt="Javiera Valdivieso Nutricionista"
-                className="h-14 w-auto object-contain"
+                className="h-20 sm:h-24 w-auto object-contain"
               />
             </Link>
 
