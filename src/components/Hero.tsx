@@ -1,4 +1,4 @@
-import { Award, Sparkles, CheckCircle2 } from 'lucide-react';
+import { CheckCircle2 } from 'lucide-react';
 import { NUTRITIONIST_INFO } from '../data';
 
 interface HeroProps {
@@ -18,7 +18,7 @@ export default function Hero({ onOpenBooking, onViewPrograms }: HeroProps) {
           
           {/* Main Copy Content */}
           <div className="lg:col-span-7 flex flex-col justify-center text-left">
-            {/* Powerful Editorial Headline -->
+            {/* Powerful Editorial Headline */}
             <h1 className="font-serif text-4xl sm:text-5xl lg:text-5xl font-medium tracking-tight text-sage-900 leading-[1.15] mb-6">
               Sana tu abdomen, <span className="italic text-sage-700 font-normal">regulariza tus hormonas</span> y haz las paces con la comida.
             </h1>
@@ -64,19 +64,30 @@ export default function Hero({ onOpenBooking, onViewPrograms }: HeroProps) {
 
           {/* Clinician Portrait & Key Stats */}
           <div className="lg:col-span-5 relative flex flex-col items-center justify-center">
-            {/* Visual background circle */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] h-[90%] rounded-full bg-sand-200/60 -z-10 scale-105"></div>
-            
-            {/* Main Picture */}
-            <div className="relative w-full max-w-[380px] rounded-2xl overflow-hidden border-2 border-white shadow-xl aspect-3/4">
-              <img
-                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=600&h=800"
-                alt="Javiera Valdivieso - Nutricionista Chilena"
-                className="w-full h-full object-cover object-top hover:scale-105 transition-all duration-500 ease-out"
-                referrerPolicy="no-referrer"
-              />
+            {/* Main Picture with overlay like reference */}
+            <div className="relative w-full max-w-[420px]">
+              {/* Sage overlay circle decoration */}
+              <div className="absolute inset-0 -m-4 sm:-m-6">
+                <svg viewBox="0 0 400 400" className="w-full h-full opacity-20">
+                  <circle cx="200" cy="200" r="180" fill="none" stroke="#787860" strokeWidth="2"/>
+                  <circle cx="200" cy="200" r="140" fill="none" stroke="#787860" strokeWidth="1.5"/>
+                  <path d="M200 20 Q280 100 200 200 Q120 300 200 380" fill="none" stroke="#787860" strokeWidth="2" strokeLinecap="round"/>
+                  <path d="M200 20 Q120 100 200 200 Q280 300 200 380" fill="none" stroke="#787860" strokeWidth="2" strokeLinecap="round"/>
+                </svg>
+              </div>
               
-
+              {/* Photo container */}
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                <img
+                  src="/javiera-hero.jpg"
+                  alt="Javiera Valdivieso - Nutricionista Chilena"
+                  className="w-full h-auto object-cover"
+                  referrerPolicy="no-referrer"
+                />
+                
+                {/* Bottom gradient overlay for depth */}
+                <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-sage-900/30 to-transparent pointer-events-none"></div>
+              </div>
             </div>
 
             {/* Embedded Floating Trust Badge */}
