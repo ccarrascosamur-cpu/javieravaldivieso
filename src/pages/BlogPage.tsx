@@ -20,6 +20,9 @@ export default function BlogPage() {
         <meta property="og:description" content="Artículos de nutrición, recetas saludables y tips de alimentación consciente para chilenos." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://javieravaldivieso.cl/blog" />
+        <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+        <meta http-equiv="Pragma" content="no-cache" />
+        <meta http-equiv="Expires" content="0" />
       </Helmet>
 
       <div className="pt-28 pb-12 bg-sand-100">
