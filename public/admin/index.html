@@ -8,18 +8,10 @@
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     :root {
-      --sage-50: #f0f0eb;
-      --sage-100: #e2e2d9;
-      --sage-200: #c5c5b8;
-      --sage-500: #787860;
-      --sage-700: #5A5A40;
-      --sage-800: #4a4a35;
-      --sage-900: #1a1a1a;
-      --sand-50: #f5f2ed;
-      --sand-100: #e0ddd5;
-      --sand-300: #b0aba2;
-      --terracotta-500: #cf8a72;
-      --terracotta-700: #a35a43;
+      --sage-50: #f0f0eb; --sage-100: #e2e2d9; --sage-200: #c5c5b8;
+      --sage-500: #787860; --sage-700: #5A5A40; --sage-800: #4a4a35; --sage-900: #1a1a1a;
+      --sand-50: #f5f2ed; --sand-100: #e0ddd5; --sand-300: #b0aba2;
+      --terracotta-500: #cf8a72; --terracotta-700: #a35a43;
     }
     body {
       font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
@@ -28,164 +20,84 @@
       min-height: 100vh;
     }
     .login-screen {
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      display: flex; align-items: center; justify-content: center;
       min-height: 100vh;
       background: linear-gradient(135deg, var(--sage-50) 0%, var(--sand-100) 100%);
     }
     .login-box {
-      background: white;
-      padding: 3rem;
-      border-radius: 1.5rem;
+      background: white; padding: 3rem; border-radius: 1.5rem;
       box-shadow: 0 4px 24px rgba(0,0,0,0.08);
-      width: 100%;
-      max-width: 400px;
-      text-align: center;
+      width: 100%; max-width: 400px; text-align: center;
     }
     .login-box img { height: 80px; margin-bottom: 1.5rem; }
     .login-box h1 { font-family: 'Playfair Display', Georgia, serif; font-size: 1.5rem; color: var(--sage-900); margin-bottom: 0.5rem; }
     .login-box p { color: var(--sand-300); font-size: 0.875rem; margin-bottom: 2rem; }
     .login-box input {
-      width: 100%;
-      padding: 0.875rem 1rem;
-      border: 1px solid var(--sage-200);
-      border-radius: 0.75rem;
-      font-size: 0.875rem;
-      margin-bottom: 1rem;
-      outline: none;
-      transition: border-color 0.2s;
+      width: 100%; padding: 0.875rem 1rem; border: 1px solid var(--sage-200);
+      border-radius: 0.75rem; font-size: 0.875rem; margin-bottom: 1rem; outline: none;
     }
     .login-box input:focus { border-color: var(--sage-500); }
     .login-box button {
-      width: 100%;
-      padding: 0.875rem;
-      background: var(--sage-700);
-      color: white;
-      border: none;
-      border-radius: 0.75rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background 0.2s;
+      width: 100%; padding: 0.875rem; background: var(--sage-700); color: white;
+      border: none; border-radius: 0.75rem; font-weight: 600; cursor: pointer;
     }
     .login-box button:hover { background: var(--sage-800); }
     .login-box .error { color: #dc2626; font-size: 0.75rem; margin-top: 0.75rem; display: none; }
 
     .admin-layout { display: none; }
     .admin-layout.active { display: flex; }
-
     .sidebar {
-      width: 260px;
-      background: var(--sage-900);
-      color: white;
-      min-height: 100vh;
-      padding: 1.5rem;
-      position: fixed;
-      left: 0;
-      top: 0;
+      width: 260px; background: var(--sage-900); color: white;
+      min-height: 100vh; padding: 1.5rem; position: fixed; left: 0; top: 0;
     }
     .sidebar-header {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      padding-bottom: 1.5rem;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
+      display: flex; align-items: center; gap: 0.75rem;
+      padding-bottom: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.1);
       margin-bottom: 1.5rem;
     }
     .sidebar-header img { height: 40px; }
     .sidebar-header span { font-family: 'Playfair Display', Georgia, serif; font-size: 1rem; }
     .nav-item {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      padding: 0.75rem 1rem;
-      border-radius: 0.5rem;
-      cursor: pointer;
-      transition: all 0.2s;
-      font-size: 0.875rem;
-      color: rgba(255,255,255,0.7);
-      margin-bottom: 0.25rem;
+      display: flex; align-items: center; gap: 0.75rem;
+      padding: 0.75rem 1rem; border-radius: 0.5rem; cursor: pointer;
+      transition: all 0.2s; font-size: 0.875rem;
+      color: rgba(255,255,255,0.7); margin-bottom: 0.25rem;
     }
-    .nav-item:hover, .nav-item.active {
-      background: rgba(255,255,255,0.1);
-      color: white;
-    }
+    .nav-item:hover, .nav-item.active { background: rgba(255,255,255,0.1); color: white; }
     .nav-item svg { width: 18px; height: 18px; }
 
-    .main-content {
-      margin-left: 260px;
-      flex: 1;
-      padding: 2rem;
-    }
-    .top-bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 2rem;
-    }
+    .main-content { margin-left: 260px; flex: 1; padding: 2rem; }
+    .top-bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; }
     .top-bar h2 { font-family: 'Playfair Display', Georgia, serif; font-size: 1.75rem; }
     .top-bar .user-badge {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      background: white;
-      padding: 0.5rem 1rem;
-      border-radius: 2rem;
-      font-size: 0.875rem;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+      display: flex; align-items: center; gap: 0.75rem;
+      background: white; padding: 0.5rem 1rem; border-radius: 2rem;
+      font-size: 0.875rem; box-shadow: 0 1px 4px rgba(0,0,0,0.05);
     }
     .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.625rem 1.25rem;
-      border-radius: 0.5rem;
-      font-size: 0.875rem;
-      font-weight: 600;
-      cursor: pointer;
-      border: none;
-      transition: all 0.2s;
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.625rem 1.25rem; border-radius: 0.5rem;
+      font-size: 0.875rem; font-weight: 600; cursor: pointer; border: none;
     }
     .btn-primary { background: var(--sage-700); color: white; }
     .btn-primary:hover { background: var(--sage-800); }
     .btn-secondary { background: white; color: var(--sage-700); border: 1px solid var(--sage-200); }
     .btn-danger { background: #fee2e2; color: #dc2626; }
 
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 1.5rem;
-      margin-bottom: 2rem;
-    }
-    .stat-card {
-      background: white;
-      padding: 1.5rem;
-      border-radius: 1rem;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
-    }
+    .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 2rem; }
+    .stat-card { background: white; padding: 1.5rem; border-radius: 1rem; box-shadow: 0 1px 4px rgba(0,0,0,0.05); }
     .stat-card .label { font-size: 0.75rem; color: var(--sand-300); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem; }
     .stat-card .value { font-family: 'Playfair Display', Georgia, serif; font-size: 2rem; color: var(--sage-900); }
 
     .content-section { display: none; }
     .content-section.active { display: block; }
 
-    .table-container {
-      background: white;
-      border-radius: 1rem;
-      overflow: hidden;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
-    }
+    .table-container { background: white; border-radius: 1rem; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,0.05); }
     table { width: 100%; border-collapse: collapse; }
     th { text-align: left; padding: 1rem; font-size: 0.75rem; text-transform: uppercase; color: var(--sand-300); background: var(--sand-50); }
     td { padding: 1rem; font-size: 0.875rem; border-top: 1px solid var(--sand-100); }
     tr:hover td { background: var(--sand-50); }
-    .badge {
-      display: inline-block;
-      padding: 0.25rem 0.75rem;
-      border-radius: 1rem;
-      font-size: 0.75rem;
-      font-weight: 600;
-    }
+    .badge { display: inline-block; padding: 0.25rem 0.75rem; border-radius: 1rem; font-size: 0.75rem; font-weight: 600; }
     .badge-green { background: #dcfce7; color: #166534; }
     .badge-blue { background: #dbeafe; color: #1e40af; }
     .badge-orange { background: #ffedd5; color: #9a3412; }
@@ -193,68 +105,38 @@
     .form-group { margin-bottom: 1.25rem; }
     .form-group label { display: block; font-size: 0.875rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--sage-800); }
     .form-group input, .form-group textarea, .form-group select {
-      width: 100%;
-      padding: 0.75rem 1rem;
-      border: 1px solid var(--sage-200);
-      border-radius: 0.5rem;
-      font-size: 0.875rem;
-      outline: none;
-      font-family: inherit;
+      width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--sage-200);
+      border-radius: 0.5rem; font-size: 0.875rem; outline: none; font-family: inherit;
     }
     .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--sage-500); }
     .form-group textarea { resize: vertical; min-height: 120px; }
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
 
     .modal-overlay {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.5);
-      z-index: 100;
-      align-items: center;
-      justify-content: center;
-      padding: 2rem;
+      display: none; position: fixed; inset: 0;
+      background: rgba(0,0,0,0.5); z-index: 100;
+      align-items: center; justify-content: center; padding: 2rem;
     }
     .modal-overlay.active { display: flex; }
     .modal {
-      background: white;
-      border-radius: 1rem;
-      width: 100%;
-      max-width: 700px;
-      max-height: 90vh;
-      overflow-y: auto;
-      padding: 2rem;
+      background: white; border-radius: 1rem; width: 100%;
+      max-width: 700px; max-height: 90vh; overflow-y: auto; padding: 2rem;
     }
     .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; }
     .modal-header h3 { font-family: 'Playfair Display', Georgia, serif; font-size: 1.25rem; }
     .modal-close { background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--sand-300); }
 
-    .image-preview {
-      width: 100%;
-      height: 200px;
-      border: 2px dashed var(--sage-200);
-      border-radius: 0.75rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--sand-300);
-      font-size: 0.875rem;
-      cursor: pointer;
-      overflow: hidden;
-      background: var(--sand-50);
-    }
-    .image-preview img { width: 100%; height: 100%; object-fit: cover; }
-    .image-preview:hover { border-color: var(--sage-500); }
-
     .actions { display: flex; gap: 0.5rem; }
     .actions button { padding: 0.375rem 0.75rem; font-size: 0.75rem; }
 
-    .empty-state {
-      text-align: center;
-      padding: 4rem 2rem;
-      color: var(--sand-300);
+    .sync-status { 
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.5rem 1rem; border-radius: 2rem; font-size: 0.75rem; font-weight: 600;
+      margin-bottom: 1rem;
     }
-    .empty-state svg { width: 64px; height: 64px; margin-bottom: 1rem; opacity: 0.5; }
+    .sync-status.online { background: #dcfce7; color: #166534; }
+    .sync-status.offline { background: #fee2e2; color: #dc2626; }
+    .sync-status.syncing { background: #dbeafe; color: #1e40af; }
 
     @media (max-width: 768px) {
       .sidebar { width: 100%; position: relative; min-height: auto; }
@@ -323,27 +205,26 @@
           <span>Javiera Valdivieso</span>
         </div>
       </div>
+      <div class="sync-status online" id="syncStatus">
+        🟢 Conectado a la base de datos (Cloudflare D1)
+      </div>
       <div class="card-grid">
         <div class="stat-card">
           <div class="label">Artículos Publicados</div>
-          <div class="value" id="stat-articulos">3</div>
+          <div class="value" id="stat-articulos">—</div>
         </div>
         <div class="stat-card">
           <div class="label">Servicios Activos</div>
-          <div class="value" id="stat-servicios">5</div>
+          <div class="value" id="stat-servicios">—</div>
         </div>
         <div class="stat-card">
           <div class="label">Testimonios</div>
-          <div class="value" id="stat-testimonios">4</div>
+          <div class="value" id="stat-testimonios">—</div>
         </div>
         <div class="stat-card">
-          <div class="label">Visitas (estimado)</div>
-          <div class="value">—</div>
+          <div class="label">Base de Datos</div>
+          <div class="value" style="font-size:1.25rem;color:var(--sage-500);">Cloudflare D1</div>
         </div>
-      </div>
-      <div class="table-container" style="padding:1.5rem;">
-        <h3 style="font-family:'Playfair Display',serif;margin-bottom:1rem;">Últimos cambios</h3>
-        <p style="color:var(--sand-300);font-size:0.875rem;">Los cambios se guardan localmente. Para publicar, exporta y actualiza el código.</p>
       </div>
     </div>
 
@@ -356,13 +237,7 @@
       <div class="table-container">
         <table>
           <thead>
-            <tr>
-              <th>Título</th>
-              <th>Categoría</th>
-              <th>Fecha</th>
-              <th>Estado</th>
-              <th>Acciones</th>
-            </tr>
+            <tr><th>Título</th><th>Categoría</th><th>Fecha</th><th>Estado</th><th>Acciones</th></tr>
           </thead>
           <tbody id="tabla-articulos"></tbody>
         </table>
@@ -378,13 +253,7 @@
       <div class="table-container">
         <table>
           <thead>
-            <tr>
-              <th>Servicio</th>
-              <th>Duración</th>
-              <th>Precio</th>
-              <th>Categoría</th>
-              <th>Acciones</th>
-            </tr>
+            <tr><th>Servicio</th><th>Duración</th><th>Precio</th><th>Categoría</th><th>Acciones</th></tr>
           </thead>
           <tbody id="tabla-servicios"></tbody>
         </table>
@@ -400,13 +269,7 @@
       <div class="table-container">
         <table>
           <thead>
-            <tr>
-              <th>Nombre</th>
-              <th>Ciudad</th>
-              <th>Condición</th>
-              <th>Rating</th>
-              <th>Acciones</th>
-            </tr>
+            <tr><th>Nombre</th><th>Ciudad</th><th>Condición</th><th>Rating</th><th>Acciones</th></tr>
           </thead>
           <tbody id="tabla-testimonios"></tbody>
         </table>
@@ -437,10 +300,9 @@
         </div>
         <div class="form-group">
           <label>Descripción SEO (meta description)</label>
-          <textarea id="cfg-descripcion">Asesorías nutricionales online con Javiera Valdivieso. Especialista en salud digestiva, hormonal y metabólica. Atención 100% online para todo Chile.</textarea>
+          <textarea id="cfg-descripcion" rows="3">Asesorías nutricionales online con Javiera Valdivieso. Especialista en salud digestiva, hormonal y metabólica. Atención 100% online para todo Chile.</textarea>
         </div>
-        <button class="btn btn-primary" onclick="guardarConfig()">Guardar Cambios</button>
-        <button class="btn btn-secondary" onclick="exportarDatos()" style="margin-left:0.5rem;">📥 Exportar JSON</button>
+        <button class="btn btn-primary" onclick="guardarConfig()">💾 Guardar en Base de Datos</button>
       </div>
     </div>
   </main>
@@ -450,51 +312,25 @@
 <div class="modal-overlay" id="modal-articulo">
   <div class="modal">
     <div class="modal-header">
-      <h3 id="modal-articulo-title">Nuevo Artículo</h3>
+      <h3>Nuevo Artículo</h3>
       <button class="modal-close" onclick="closeModal('articulo')">&times;</button>
     </div>
-    <div class="form-group">
-      <label>Título</label>
-      <input type="text" id="art-titulo" placeholder="Ej: 5 desayunos saludables">
-    </div>
+    <div class="form-group"><label>Título</label><input type="text" id="art-titulo" placeholder="Ej: 5 desayunos saludables"></div>
     <div class="form-row">
-      <div class="form-group">
-        <label>Slug (URL)</label>
-        <input type="text" id="art-slug" placeholder="5-desayunos-saludables">
-      </div>
+      <div class="form-group"><label>Slug (URL)</label><input type="text" id="art-slug" placeholder="5-desayunos-saludables"></div>
       <div class="form-group">
         <label>Categoría</label>
-        <select id="art-categoria">
-          <option value="nutricion">Nutrición Clínica</option>
-          <option value="recetas">Recetas</option>
-          <option value="salud-integral">Salud Integral</option>
-          <option value="habitos">Hábitos</option>
-        </select>
+        <select id="art-categoria"><option value="nutricion">Nutrición Clínica</option><option value="recetas">Recetas</option><option value="salud-integral">Salud Integral</option><option value="habitos">Hábitos</option></select>
       </div>
     </div>
-    <div class="form-group">
-      <label>Resumen</label>
-      <textarea id="art-resumen" rows="2" placeholder="Breve descripción del artículo..."></textarea>
-    </div>
-    <div class="form-group">
-      <label>Contenido (Markdown)</label>
-      <textarea id="art-contenido" rows="6" placeholder="Contenido completo del artículo..."></textarea>
-    </div>
+    <div class="form-group"><label>Resumen</label><textarea id="art-resumen" rows="2" placeholder="Breve descripción..."></textarea></div>
+    <div class="form-group"><label>Contenido (Markdown)</label><textarea id="art-contenido" rows="6" placeholder="Contenido completo..."></textarea></div>
     <div class="form-row">
-      <div class="form-group">
-        <label>Imagen URL</label>
-        <input type="text" id="art-imagen" placeholder="https://...">
-      </div>
-      <div class="form-group">
-        <label>Tiempo de lectura</label>
-        <input type="text" id="art-readtime" placeholder="5 min read">
-      </div>
+      <div class="form-group"><label>Imagen URL</label><input type="text" id="art-imagen" placeholder="https://..."></div>
+      <div class="form-group"><label>Tiempo de lectura</label><input type="text" id="art-readtime" placeholder="5 min read"></div>
     </div>
-    <div class="form-group">
-      <label>Tags (separados por coma)</label>
-      <input type="text" id="art-tags" placeholder="salud, nutrición, recetas">
-    </div>
-    <button class="btn btn-primary" onclick="guardarArticulo()">Guardar Artículo</button>
+    <div class="form-group"><label>Tags (separados por coma)</label><input type="text" id="art-tags" placeholder="salud, nutrición, recetas"></div>
+    <button class="btn btn-primary" onclick="guardarArticulo()">💾 Guardar en Base de Datos</button>
   </div>
 </div>
 
@@ -502,49 +338,25 @@
 <div class="modal-overlay" id="modal-servicio">
   <div class="modal">
     <div class="modal-header">
-      <h3 id="modal-servicio-title">Nuevo Servicio</h3>
+      <h3>Nuevo Servicio</h3>
       <button class="modal-close" onclick="closeModal('servicio')">&times;</button>
     </div>
-    <div class="form-group">
-      <label>Nombre del servicio</label>
-      <input type="text" id="srv-nombre" placeholder="Ej: Consulta de Evaluación Inicial">
+    <div class="form-group"><label>Nombre del servicio</label><input type="text" id="srv-nombre" placeholder="Ej: Consulta de Evaluación Inicial"></div>
+    <div class="form-row">
+      <div class="form-group"><label>Precio (CLP)</label><input type="number" id="srv-precio" placeholder="45000"></div>
+      <div class="form-group"><label>Precio original (opcional)</label><input type="number" id="srv-precio-original" placeholder="55000"></div>
     </div>
     <div class="form-row">
-      <div class="form-group">
-        <label>Precio (CLP)</label>
-        <input type="number" id="srv-precio" placeholder="45000">
-      </div>
-      <div class="form-group">
-        <label>Precio original (opcional)</label>
-        <input type="number" id="srv-precio-original" placeholder="55000">
-      </div>
-    </div>
-    <div class="form-row">
-      <div class="form-group">
-        <label>Duración</label>
-        <input type="text" id="srv-duracion" placeholder="60 minutos">
-      </div>
+      <div class="form-group"><label>Duración</label><input type="text" id="srv-duracion" placeholder="60 minutos"></div>
       <div class="form-group">
         <label>Categoría</label>
-        <select id="srv-categoria">
-          <option value="consulta">Consulta</option>
-          <option value="pack">Pack</option>
-          <option value="programa">Programa</option>
-        </select>
+        <select id="srv-categoria"><option value="consulta">Consulta</option><option value="pack">Pack</option><option value="programa">Programa</option></select>
       </div>
     </div>
-    <div class="form-group">
-      <label>Descripción corta</label>
-      <textarea id="srv-desc" rows="2" placeholder="Descripción breve..."></textarea>
-    </div>
-    <div class="form-group">
-      <label>Beneficios (uno por línea)</label>
-      <textarea id="srv-beneficios" rows="4" placeholder="- Beneficio 1&#10;- Beneficio 2&#10;- Beneficio 3"></textarea>
-    </div>
-    <div class="form-group">
-      <label><input type="checkbox" id="srv-popular"> Marcar como más popular</label>
-    </div>
-    <button class="btn btn-primary" onclick="guardarServicio()">Guardar Servicio</button>
+    <div class="form-group"><label>Descripción corta</label><textarea id="srv-desc" rows="2" placeholder="Descripción breve..."></textarea></div>
+    <div class="form-group"><label>Beneficios (uno por línea)</label><textarea id="srv-beneficios" rows="4" placeholder="- Beneficio 1&#10;- Beneficio 2"></textarea></div>
+    <div class="form-group"><label><input type="checkbox" id="srv-popular"> Marcar como más popular</label></div>
+    <button class="btn btn-primary" onclick="guardarServicio()">💾 Guardar en Base de Datos</button>
   </div>
 </div>
 
@@ -552,50 +364,27 @@
 <div class="modal-overlay" id="modal-testimonio">
   <div class="modal">
     <div class="modal-header">
-      <h3 id="modal-testimonio-title">Nuevo Testimonio</h3>
+      <h3>Nuevo Testimonio</h3>
       <button class="modal-close" onclick="closeModal('testimonio')">&times;</button>
     </div>
     <div class="form-row">
-      <div class="form-group">
-        <label>Nombre</label>
-        <input type="text" id="test-nombre" placeholder="Ej: Carolina Henríquez">
-      </div>
-      <div class="form-group">
-        <label>Edad</label>
-        <input type="number" id="test-edad" placeholder="34">
-      </div>
+      <div class="form-group"><label>Nombre</label><input type="text" id="test-nombre" placeholder="Ej: Carolina Henríquez"></div>
+      <div class="form-group"><label>Edad</label><input type="number" id="test-edad" placeholder="34"></div>
     </div>
     <div class="form-row">
-      <div class="form-group">
-        <label>Ciudad</label>
-        <input type="text" id="test-ciudad" placeholder="Ej: Concepción">
-      </div>
-      <div class="form-group">
-        <label>Rating (1-5)</label>
-        <input type="number" id="test-rating" min="1" max="5" value="5">
-      </div>
+      <div class="form-group"><label>Ciudad</label><input type="text" id="test-ciudad" placeholder="Ej: Concepción"></div>
+      <div class="form-group"><label>Rating (1-5)</label><input type="number" id="test-rating" min="1" max="5" value="5"></div>
     </div>
-    <div class="form-group">
-      <label>Condición tratada</label>
-      <input type="text" id="test-condicion" placeholder="Ej: Colon Irritable & Inflamación">
-    </div>
-    <div class="form-group">
-      <label>Testimonio</label>
-      <textarea id="test-texto" rows="4" placeholder="Texto del testimonio..."></textarea>
-    </div>
-    <div class="form-group">
-      <label>Foto URL (opcional)</label>
-      <input type="text" id="test-foto" placeholder="https://...">
-    </div>
-    <button class="btn btn-primary" onclick="guardarTestimonio()">Guardar Testimonio</button>
+    <div class="form-group"><label>Condición tratada</label><input type="text" id="test-condicion" placeholder="Ej: Colon Irritable & Inflamación"></div>
+    <div class="form-group"><label>Testimonio</label><textarea id="test-texto" rows="4" placeholder="Texto del testimonio..."></textarea></div>
+    <div class="form-group"><label>Foto URL (opcional)</label><input type="text" id="test-foto" placeholder="https://..."></div>
+    <button class="btn btn-primary" onclick="guardarTestimonio()">💾 Guardar en Base de Datos</button>
   </div>
 </div>
 
 <script>
-// ========================
-// AUTH
-// ========================
 const ADMIN_PASSWORD = 'javiera2026';
+const API_BASE = '/api';
 
 function doLogin() {
   const pass = document.getElementById('passwordInput').value;
@@ -606,262 +395,174 @@ function doLogin() {
     document.getElementById('loginError').style.display = 'block';
   }
 }
-
-function logout() {
-  localStorage.removeItem('javiera_admin_auth');
-  location.reload();
-}
-
+function logout() { localStorage.removeItem('javiera_admin_auth'); location.reload(); }
 function showAdmin() {
   document.getElementById('loginScreen').style.display = 'none';
   document.getElementById('adminLayout').classList.add('active');
   cargarDatos();
 }
+if (localStorage.getItem('javiera_admin_auth') === 'true') showAdmin();
 
-if (localStorage.getItem('javiera_admin_auth') === 'true') {
-  showAdmin();
+async function api(endpoint, method = 'GET', body = null) {
+  const opts = { method, headers: { 'Content-Type': 'application/json' } };
+  if (body) opts.body = JSON.stringify(body);
+  const res = await fetch(API_BASE + endpoint, opts);
+  if (!res.ok) throw new Error('API error: ' + res.status);
+  return res.json();
 }
 
-// ========================
-// DATA STORE
-// ========================
-let datos = {
-  articulos: [],
-  servicios: [],
-  testimonios: [],
-  config: {}
-};
-
-function cargarDatos() {
-  const saved = localStorage.getItem('javiera_admin_data');
-  if (saved) {
-    datos = JSON.parse(saved);
-  } else {
-    // Datos demo iniciales
-    datos = {
-      articulos: [
-        { id: '1', titulo: '¿Abdomen hinchado? Cómo bajar la inflamación intestinal', slug: 'como-bajar-inflamacion-intestinal', categoria: 'salud-integral', fecha: '24 Mayo 2026', estado: 'publicado', resumen: 'La distensión abdominal no es normal...', contenido: '', imagen: '', readtime: '6 min read', tags: 'Colon Irritable,Salud digestiva' },
-        { id: '2', titulo: '5 Ideas de desayunos saludables y rápidos', slug: 'ideas-desayunos-saludables', categoria: 'recetas', fecha: '18 Mayo 2026', estado: 'publicado', resumen: '¿Sin tiempo para cocinar...', contenido: '', imagen: '', readtime: '4 min read', tags: 'Desayuno,Recetas' },
-        { id: '3', titulo: 'Resistencia a la Insulina en Chile', slug: 'resistencia-insulina', categoria: 'nutricion', fecha: '10 Mayo 2026', estado: 'publicado', resumen: 'La resistencia a la insulina...', contenido: '', imagen: '', readtime: '7 min read', tags: 'Resistencia Insulina,Metabolismo' }
-      ],
-      servicios: [
-        { id: 'consulta-inicial', nombre: 'Consulta de Evaluación Inicial', precio: 45000, precioOriginal: 55000, duracion: '60 minutos', categoria: 'consulta', popular: false, desc: 'Evaluación integral...', beneficios: '' },
-        { id: 'pack-bienestar', nombre: 'Pack Bienestar Integral (1 Mes)', precio: 68000, precioOriginal: 75000, duracion: '1 Mes', categoria: 'pack', popular: true, desc: 'La opción ideal...', beneficios: '' },
-        { id: 'programa-transformacion', nombre: 'Programa Hábitos Sostenibles (3 Meses)', precio: 155000, precioOriginal: 180000, duracion: '3 Meses', categoria: 'programa', popular: false, desc: 'Acompañamiento intensivo...', beneficios: '' }
-      ],
-      testimonios: [
-        { id: '1', nombre: 'Carolina Henríquez', edad: 34, ciudad: 'Concepción', condicion: 'Colon Irritable & Inflamación', rating: 5, texto: 'Llegué donde Javiera desesperada...', foto: '' },
-        { id: '2', nombre: 'Sebastián Oyarzún', edad: 29, ciudad: 'Santiago', condicion: 'Nutrición Deportiva', rating: 5, texto: 'Entrenaba crossfit...', foto: '' }
-      ],
-      config: {
-        nombre: 'Javiera Valdivieso',
-        email: 'contacto@javieravaldivieso.cl',
-        telefono: '+56 9 8765 4321',
-        instagram: 'https://www.instagram.com/nutjavieravaldivieso/',
-        descripcion: 'Asesorías nutricionales online...'
-      }
-    };
-    guardarStorage();
+async function cargarDatos() {
+  try {
+    const [articulos, servicios, testimonios, config] = await Promise.all([
+      api('/articulos'),
+      api('/servicios'),
+      api('/testimonios'),
+      api('/config')
+    ]);
+    renderArticulos(articulos);
+    renderServicios(servicios);
+    renderTestimonios(testimonios);
+    document.getElementById('stat-articulos').textContent = articulos.length;
+    document.getElementById('stat-servicios').textContent = servicios.length;
+    document.getElementById('stat-testimonios').textContent = testimonios.length;
+    if (config.nombre) document.getElementById('cfg-nombre').value = config.nombre;
+    if (config.email) document.getElementById('cfg-email').value = config.email;
+    if (config.telefono) document.getElementById('cfg-telefono').value = config.telefono;
+    if (config.instagram) document.getElementById('cfg-instagram').value = config.instagram;
+    if (config.descripcion) document.getElementById('cfg-descripcion').value = config.descripcion;
+  } catch (e) {
+    document.getElementById('syncStatus').className = 'sync-status offline';
+    document.getElementById('syncStatus').textContent = '🔴 Error de conexión: ' + e.message;
   }
-  renderTablas();
 }
 
-function guardarStorage() {
-  localStorage.setItem('javiera_admin_data', JSON.stringify(datos));
+function renderArticulos(data) {
+  document.getElementById('tabla-articulos').innerHTML = data.map(a => `
+    <tr>
+      <td><strong>${a.titulo}</strong></td>
+      <td><span class="badge badge-blue">${a.categoria}</span></td>
+      <td>${a.fecha || '-'}</td>
+      <td><span class="badge badge-green">${a.estado}</span></td>
+      <td class="actions">
+        <button class="btn btn-danger" onclick="eliminarArticulo(${a.id})">Eliminar</button>
+      </td>
+    </tr>
+  `).join('');
+}
+function renderServicios(data) {
+  document.getElementById('tabla-servicios').innerHTML = data.map(s => `
+    <tr>
+      <td><strong>${s.nombre}</strong>${s.isPopular ? ' ⭐' : ''}</td>
+      <td>${s.duracion}</td>
+      <td>$${s.precio?.toLocaleString('es-CL')}</td>
+      <td><span class="badge badge-orange">${s.categoria}</span></td>
+      <td class="actions">
+        <button class="btn btn-danger" onclick="eliminarServicio(${s.id})">Eliminar</button>
+      </td>
+    </tr>
+  `).join('');
+}
+function renderTestimonios(data) {
+  document.getElementById('tabla-testimonios').innerHTML = data.map(t => `
+    <tr>
+      <td><strong>${t.nombre}</strong></td>
+      <td>${t.ciudad}</td>
+      <td>${t.condicion}</td>
+      <td>${'⭐'.repeat(t.rating || 5)}</td>
+      <td class="actions">
+        <button class="btn btn-danger" onclick="eliminarTestimonio(${t.id})">Eliminar</button>
+      </td>
+    </tr>
+  `).join('');
 }
 
-// ========================
-// NAVIGATION
-// ========================
 function showSection(section) {
   document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
   document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
   document.getElementById('section-' + section).classList.add('active');
   event.target.closest('.nav-item').classList.add('active');
 }
+function openModal(tipo) { document.getElementById('modal-' + tipo).classList.add('active'); }
+function closeModal(tipo) { document.getElementById('modal-' + tipo).classList.remove('active'); }
 
-// ========================
-// MODALS
-// ========================
-function openModal(tipo) {
-  document.getElementById('modal-' + tipo).classList.add('active');
-  document.getElementById('modal-' + tipo + '-title').textContent = tipo === 'articulo' ? 'Nuevo Artículo' : tipo === 'servicio' ? 'Nuevo Servicio' : 'Nuevo Testimonio';
-}
-
-function closeModal(tipo) {
-  document.getElementById('modal-' + tipo).classList.remove('active');
-}
-
-// ========================
-// RENDER TABLES
-// ========================
-function renderTablas() {
-  // Articulos
-  const tbodyArt = document.getElementById('tabla-articulos');
-  tbodyArt.innerHTML = datos.articulos.map(a => `
-    <tr>
-      <td><strong>${a.titulo}</strong></td>
-      <td><span class="badge badge-blue">${a.categoria}</span></td>
-      <td>${a.fecha}</td>
-      <td><span class="badge badge-green">${a.estado}</span></td>
-      <td class="actions">
-        <button class="btn btn-secondary" onclick="editarArticulo('${a.id}')">Editar</button>
-        <button class="btn btn-danger" onclick="eliminarArticulo('${a.id}')">Eliminar</button>
-      </td>
-    </tr>
-  `).join('');
-
-  // Servicios
-  const tbodySrv = document.getElementById('tabla-servicios');
-  tbodySrv.innerHTML = datos.servicios.map(s => `
-    <tr>
-      <td><strong>${s.nombre}</strong>${s.popular ? ' ⭐' : ''}</td>
-      <td>${s.duracion}</td>
-      <td>$${s.precio.toLocaleString('es-CL')}</td>
-      <td><span class="badge badge-orange">${s.categoria}</span></td>
-      <td class="actions">
-        <button class="btn btn-secondary" onclick="editarServicio('${s.id}')">Editar</button>
-        <button class="btn btn-danger" onclick="eliminarServicio('${s.id}')">Eliminar</button>
-      </td>
-    </tr>
-  `).join('');
-
-  // Testimonios
-  const tbodyTest = document.getElementById('tabla-testimonios');
-  tbodyTest.innerHTML = datos.testimonios.map(t => `
-    <tr>
-      <td><strong>${t.nombre}</strong></td>
-      <td>${t.ciudad}</td>
-      <td>${t.condicion}</td>
-      <td>${'⭐'.repeat(t.rating)}</td>
-      <td class="actions">
-        <button class="btn btn-secondary" onclick="editarTestimonio('${t.id}')">Editar</button>
-        <button class="btn btn-danger" onclick="eliminarTestimonio('${t.id}')">Eliminar</button>
-      </td>
-    </tr>
-  `).join('');
-
-  // Stats
-  document.getElementById('stat-articulos').textContent = datos.articulos.length;
-  document.getElementById('stat-servicios').textContent = datos.servicios.length;
-  document.getElementById('stat-testimonios').textContent = datos.testimonios.length;
-}
-
-// ========================
-// CRUD ARTICULOS
-// ========================
-function guardarArticulo() {
-  const articulo = {
-    id: Date.now().toString(),
-    titulo: document.getElementById('art-titulo').value,
+async function guardarArticulo() {
+  const body = {
     slug: document.getElementById('art-slug').value,
-    categoria: document.getElementById('art-categoria').value,
-    fecha: new Date().toLocaleDateString('es-CL', { day: 'numeric', month: 'long', year: 'numeric' }),
-    estado: 'publicado',
+    titulo: document.getElementById('art-titulo').value,
     resumen: document.getElementById('art-resumen').value,
     contenido: document.getElementById('art-contenido').value,
+    categoria: document.getElementById('art-categoria').value,
     imagen: document.getElementById('art-imagen').value,
+    tags: document.getElementById('art-tags').value,
     readtime: document.getElementById('art-readtime').value,
-    tags: document.getElementById('art-tags').value
+    fecha: new Date().toLocaleDateString('es-CL', { day: 'numeric', month: 'long', year: 'numeric' }),
+    estado: 'publicado'
   };
-  datos.articulos.push(articulo);
-  guardarStorage();
-  renderTablas();
+  await api('/articulos', 'POST', body);
   closeModal('articulo');
   limpiarForm('art-');
+  cargarDatos();
+}
+async function eliminarArticulo(id) {
+  if (!confirm('¿Eliminar este artículo?')) return;
+  await api('/articulos', 'DELETE', { id });
+  cargarDatos();
 }
 
-function eliminarArticulo(id) {
-  if (confirm('¿Eliminar este artículo?')) {
-    datos.articulos = datos.articulos.filter(a => a.id !== id);
-    guardarStorage();
-    renderTablas();
-  }
-}
-
-// ========================
-// CRUD SERVICIOS
-// ========================
-function guardarServicio() {
-  const servicio = {
-    id: 'srv-' + Date.now(),
+async function guardarServicio() {
+  const body = {
+    service_id: 'srv-' + Date.now(),
     nombre: document.getElementById('srv-nombre').value,
     precio: parseInt(document.getElementById('srv-precio').value) || 0,
-    precioOriginal: parseInt(document.getElementById('srv-precio-original').value) || null,
+    precio_original: parseInt(document.getElementById('srv-precio-original').value) || null,
     duracion: document.getElementById('srv-duracion').value,
     categoria: document.getElementById('srv-categoria').value,
-    popular: document.getElementById('srv-popular').checked,
-    desc: document.getElementById('srv-desc').value,
-    beneficios: document.getElementById('srv-beneficios').value
+    shortDesc: document.getElementById('srv-desc').value,
+    beneficios: document.getElementById('srv-beneficios').value,
+    isPopular: document.getElementById('srv-popular').checked
   };
-  datos.servicios.push(servicio);
-  guardarStorage();
-  renderTablas();
+  await api('/servicios', 'POST', body);
   closeModal('servicio');
   limpiarForm('srv-');
+  cargarDatos();
+}
+async function eliminarServicio(id) {
+  if (!confirm('¿Eliminar este servicio?')) return;
+  await api('/servicios', 'DELETE', { id });
+  cargarDatos();
 }
 
-function eliminarServicio(id) {
-  if (confirm('¿Eliminar este servicio?')) {
-    datos.servicios = datos.servicios.filter(s => s.id !== id);
-    guardarStorage();
-    renderTablas();
-  }
-}
-
-// ========================
-// CRUD TESTIMONIOS
-// ========================
-function guardarTestimonio() {
-  const testimonio = {
-    id: 'test-' + Date.now(),
+async function guardarTestimonio() {
+  const body = {
     nombre: document.getElementById('test-nombre').value,
     edad: parseInt(document.getElementById('test-edad').value) || 0,
     ciudad: document.getElementById('test-ciudad').value,
-    condicion: document.getElementById('test-condicion').value,
-    rating: parseInt(document.getElementById('test-rating').value) || 5,
     texto: document.getElementById('test-texto').value,
-    foto: document.getElementById('test-foto').value
+    rating: parseInt(document.getElementById('test-rating').value) || 5,
+    condicion: document.getElementById('test-condicion').value,
+    imagen: document.getElementById('test-foto').value
   };
-  datos.testimonios.push(testimonio);
-  guardarStorage();
-  renderTablas();
+  await api('/testimonios', 'POST', body);
   closeModal('testimonio');
   limpiarForm('test-');
+  cargarDatos();
+}
+async function eliminarTestimonio(id) {
+  if (!confirm('¿Eliminar este testimonio?')) return;
+  await api('/testimonios', 'DELETE', { id });
+  cargarDatos();
 }
 
-function eliminarTestimonio(id) {
-  if (confirm('¿Eliminar este testimonio?')) {
-    datos.testimonios = datos.testimonios.filter(t => t.id !== id);
-    guardarStorage();
-    renderTablas();
-  }
-}
-
-// ========================
-// CONFIG
-// ========================
-function guardarConfig() {
-  datos.config = {
+async function guardarConfig() {
+  const body = {
     nombre: document.getElementById('cfg-nombre').value,
     email: document.getElementById('cfg-email').value,
     telefono: document.getElementById('cfg-telefono').value,
     instagram: document.getElementById('cfg-instagram').value,
     descripcion: document.getElementById('cfg-descripcion').value
   };
-  guardarStorage();
-  alert('Configuración guardada');
-}
-
-function exportarDatos() {
-  const dataStr = JSON.stringify(datos, null, 2);
-  const blob = new Blob([dataStr], { type: 'application/json' });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = 'javiera-valdivieso-datos.json';
-  a.click();
-  URL.revokeObjectURL(url);
+  await api('/config', 'POST', body);
+  alert('Configuración guardada en la base de datos');
 }
 
 function limpiarForm(prefix) {
@@ -871,6 +572,5 @@ function limpiarForm(prefix) {
   });
 }
 </script>
-
 </body>
 </html>

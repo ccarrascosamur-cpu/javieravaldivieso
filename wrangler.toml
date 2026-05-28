@@ -2,9 +2,7 @@ name = "javieravaldivieso"
 compatibility_date = "2026-05-28"
 pages_build_output_dir = "dist"
 
-[[headers]]
-for = "/*"
-[headers.values]
-X-Frame-Options = "DENY"
-X-Content-Type-Options = "nosniff"
-Referrer-Policy = "strict-origin-when-cross-origin"
+[[d1_databases]]
+binding = "javieravaldivieso_db"
+database_name = "javieravaldivieso-db"
+database_id = "7fc4fb31-c678-4226-86bc-634549496f14"
