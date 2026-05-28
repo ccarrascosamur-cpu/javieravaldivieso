@@ -15,7 +15,21 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-sage-900 text-sage-100 font-sans pt-16 pb-8 border-t border-sage-800">
+    <footer className="bg-sage-900 text-sage-100 font-sans pt-4 pb-8 border-t border-sage-800">
+      {/* Credits - arriba de todo */}
+      <div className="text-center pb-4 mb-4 border-b border-sage-800">
+        <p className="text-[10px] text-sage-500">
+          Sitio desarrollado por{' '}
+          <a 
+            href="https://www.emmagination.cl" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-sage-300 hover:text-white transition-colors font-medium"
+          >
+            Emmagination
+          </a>
+        </p>
+      </div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 mb-12">
