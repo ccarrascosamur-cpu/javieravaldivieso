@@ -148,6 +148,18 @@ export default function Footer() {
                 <span className="absolute bottom-0 left-0 w-full h-1 bg-red-600"></span>
               </span>
             </span>
+            <span className="text-sage-600">|</span>
+            <span className="text-sage-500">
+              Sitio desarrollado por{' '}
+              <a 
+                href="https://www.emmagination.cl" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-sage-300 hover:text-white transition-colors font-medium"
+              >
+                Emmagination
+              </a>
+            </span>
           </div>
 
           {/* Payment gateways logos placeholder representation */}
@@ -160,21 +172,6 @@ export default function Footer() {
             <span className="text-sage-700">•</span>
             <span>Transbank</span>
           </div>
-        </div>
-
-        {/* Credits */}
-        <div className="border-t border-sage-800 pt-6 mt-6 text-center">
-          <p className="text-xs text-sage-500">
-            Sitio desarrollado por{' '}
-            <a 
-              href="https://www.emmagination.cl" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-sage-300 hover:text-white transition-colors font-medium"
-            >
-              Emmagination
-            </a>
-          </p>
         </div>
 
       </div>
