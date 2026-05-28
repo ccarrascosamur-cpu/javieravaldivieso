@@ -76,14 +76,14 @@ export default function Hero({ onOpenBooking, onViewPrograms }: HeroProps) {
                 referrerPolicy="no-referrer"
               />
               
-              {/* Overlaid Medical Tag */}
+              {/* Overlaid Trust Badge */}
               <div className="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur-xs p-3 rounded-xl border border-sage-100 flex items-center space-x-3 shadow-md">
-                <div className="bg-sage-100 p-2 rounded-lg text-sage-700">
+                <div className="bg-emerald-100 p-2 rounded-lg text-emerald-700">
                   <Award className="w-5 h-5" />
                 </div>
                 <div className="leading-tight">
-                  <p className="text-xs text-sand-500 font-bold uppercase tracking-wider">Superintendencia de Salud</p>
-                  <p className="text-sm font-semibold text-sage-900">Prestadora N° 481029</p>
+                  <p className="text-xs text-sand-500 font-bold uppercase tracking-wider">Nutricionista Acreditada</p>
+                  <p className="text-sm font-semibold text-sage-900">Registro SIS N° 481029</p>
                 </div>
               </div>
             </div>
