@@ -148,18 +148,7 @@ export default function Footer() {
                 <span className="absolute bottom-0 left-0 w-full h-1 bg-red-600"></span>
               </span>
             </span>
-            <span className="text-sage-600">|</span>
-            <span className="text-sage-500">
-              Sitio desarrollado por{' '}
-              <a 
-                href="https://www.emmagination.cl" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-sage-300 hover:text-white transition-colors font-medium"
-              >
-                Emmagination
-              </a>
-            </span>
+
           </div>
 
           {/* Payment gateways logos placeholder representation */}

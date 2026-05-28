@@ -37,6 +37,18 @@ export default function Navbar({ onOpenBooking }: NavbarProps) {
 
   return (
     <>
+      {/* Credits bar */}
+      <div className="bg-sage-900 text-sage-400 text-[10px] text-center py-1 px-4">
+        <span>Sitio desarrollado por{' '}</span>
+        <a 
+          href="https://www.emmagination.cl" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="text-sage-300 hover:text-white transition-colors font-medium"
+        >
+          Emmagination
+        </a>
+      </div>
       <nav
         className={`fixed top-0 left-0 w-full z-40 transition-all duration-300 ${
           scrolled
