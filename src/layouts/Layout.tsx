@@ -5,7 +5,7 @@ import Footer from '../components/Footer';
 import AgendaOnline from '../components/AgendaOnline';
 import Payments from '../components/Payments';
 import { Appointment } from '../types';
-import { Calendar, X } from 'lucide-react';
+import { X } from 'lucide-react';
 import WhatsAppButton from '../components/WhatsAppButton';
 
 export default function Layout() {
@@ -79,9 +79,6 @@ export default function Layout() {
       {/* WhatsApp Floating Button */}
       <WhatsAppButton />
 
-      {/* Sticky Bottom Banner */}
-      <StickyBanner onOpenBooking={() => handleOpenBooking()} />
-
       {/* Booking Modal */}
       {isBookingOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
@@ -131,41 +128,6 @@ export default function Layout() {
           </div>
         </div>
       )}
-    </div>
-  );
-}
-
-function StickyBanner({ onOpenBooking }: { onOpenBooking: () => void }) {
-  const [showStickyBanner, setShowStickyBanner] = useState(false);
-
-  useState(() => {
-    const handleScroll = () => {
-      setShowStickyBanner(window.scrollY > 600);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  });
-
-  return (
-    <div
-      className={`fixed bottom-0 left-0 w-full bg-sage-800/95 backdrop-blur-md border-t border-sage-700 text-white py-3.5 px-4 sm:px-6 z-30 flex items-center justify-between shadow-2xl transition-all duration-500 transform ${
-        showStickyBanner ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0 pointer-events-none'
-      }`}
-    >
-      <div className="flex items-center space-x-3 text-left">
-        <span className="text-xl hidden sm:block">🥑</span>
-        <div>
-          <p className="font-serif text-sm font-bold text-white leading-tight">¿Listo para transformar tu salud?</p>
-          <p className="text-[10px] text-sand-300 font-medium">Reembolsable en Isapre y seguros de salud chilena.</p>
-        </div>
-      </div>
-      <button
-        onClick={onOpenBooking}
-        className="px-5 py-2 bg-sand-300 hover:bg-sand-200 text-sage-900 font-bold text-xs sm:text-xs.5 uppercase tracking-wider rounded-full shadow-md transition-all cursor-pointer flex items-center space-x-1"
-      >
-        <Calendar className="w-3.5 h-3.5" />
-        <span>Reservar ahora</span>
-      </button>
     </div>
   );
 }
